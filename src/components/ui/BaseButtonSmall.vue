@@ -52,6 +52,7 @@ button,
 a {
   margin: 5px 10px;
   text-decoration: none;
+  text-align: center;
   padding: 0.9rem 1.4rem;
   font: inherit;
   background-color: #202124;

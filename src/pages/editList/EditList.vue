@@ -1,12 +1,14 @@
 <template>
   <base-card class="base-card">
-    <h1>Twoja lista</h1>
+    <template v-slot:title>
+      <h1>Twoja lista</h1>
+    </template>
     <base-button-large
       v-if="!formOpened"
       @click.native="menageFormTab"
       mode="flat"
       class="addGift"
-      >Dodaj prezent</base-button-large
+      >{{ addGiftButtonCaption }}</base-button-large
     >
 
     <form v-if="formOpened" @submit.prevent="submitForm">
@@ -17,7 +19,7 @@
       <label for="name">Nazwa</label>
       <input id="name" type="text" v-model="name.val" />
       <label for="price">Cena</label>
-      <input id="price" type="number" v-model="price.val" />
+      <input id="price" type="number" v-model.trim="price.val" />
       <label for="url">Link do oferty</label>
       <input id="url" type="text" v-model="url.val" />
       <label for="imgUrl">Link do zdjęcia prezentu</label>
@@ -25,7 +27,8 @@
       <p class="error-message">{{ errorMessage }}</p>
       <base-button-small class="save-gift-button">Zapisz</base-button-small>
     </form>
-    <div class="list">
+    <base-spinner v-if="isLoading"></base-spinner>
+    <div v-else class="list">
       <ul class="gifts-list">
         <edit-list-gift-item
           v-for="gift in gifts"
@@ -35,7 +38,9 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :show="gift.show"
           class="list-item"
+          @delete-gift="deleteGift"
         ></edit-list-gift-item>
       </ul>
     </div>
@@ -43,9 +48,11 @@
 </template>
 <script>
 import EditListGiftItem from "../../components/editListItem/EditListGiftItem.vue";
+import BaseSpinner from "../../components/ui/BaseSpinner.vue";
 export default {
   components: {
     EditListGiftItem,
+    BaseSpinner,
   },
   data() {
     return {
@@ -72,6 +79,15 @@ export default {
       gifts: [],
     };
   },
+  computed: {
+    addGiftButtonCaption() {
+      if (this.gifts.length < 1) {
+        return "Dodaj pierwszy prezent";
+      } else {
+        return "Dodaj kolejny prezent";
+      }
+    },
+  },
   methods: {
     clearValidity(input) {
       this[input].isValid = true;
@@ -82,10 +98,10 @@ export default {
     validateForm() {
       this.errorMessage = "";
       this.formIsValid = true;
-      if (this.name.val === "") {
+      if (this.name.val === "" || this.name.val.length > 60) {
         this.name.isValid = false;
         this.formIsValid = false;
-        this.errorMessage = "Podaj nazwę prezentu.";
+        this.errorMessage = "Podaj nazwę prezentu (max 60 znaków)";
       }
       if (!this.price.val || this.price.val < 0) {
         this.price.isValid = false;
@@ -131,6 +147,16 @@ export default {
       }
       this.isLoading = false;
     },
+    async deleteGift(giftId) {
+      try {
+        await this.$store.dispatch("gifts/deleteGift", {
+          giftId: giftId,
+        });
+        this.loadGifts();
+      } catch (error) {
+        //
+      }
+    },
   },
 
   created() {
@@ -145,19 +171,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1 {
-    color: #fefefe;
-    font-size: 3rem;
-    margin-bottom: 4rem;
-  }
+
   form {
     display: flex;
     flex-direction: column;
     align-content: center;
     width: 50%;
     padding: 0rem 1rem 2rem 1rem;
-    border: 2px solid #9aa0a6;
+    border: 2px solid #444749;
     border-radius: 20px;
+    margin: 3rem 0;
+    background-color: #171717;
     div {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
@@ -170,6 +194,7 @@ export default {
         justify-self: center;
         font-size: 1.6rem;
         color: #fefefe;
+        text-align: center;
       }
       img {
         grid-area: closeIcon;
@@ -192,9 +217,10 @@ export default {
     }
     input {
       background-color: transparent;
-      border: 2px solid #9aa0a6;
-      border-radius: 20px;
+      border: 2px solid #444749;
+      border-radius: 10px;
       font-size: 1rem;
+      text-align: left;
       padding-left: 1rem;
       color: #fefefe;
       height: 40px;
@@ -227,7 +253,7 @@ export default {
       color: #222;
     }
     .save-gift-button {
-      border: 1px solid #9aa0a6;
+      border: 1px solid #444749;
       margin-top: 2rem;
       width: 20%;
       padding: 0.5rem;
@@ -253,15 +279,26 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 400px;
-    background-color: #171717;
     margin: 3rem 10% 0 10%;
+    padding: 0 1rem;
+    background-color: #171717;
+    border-radius: 10px;
     .list-item {
       background-color: #35363c;
     }
+    .list-item:nth-child(even) {
+      background-color: #242424;
+    }
   }
   .addGift {
-    margin-bottom: 3rem;
+    background-color: #981314;
+    border: none;
+    margin: 3rem;
+    border-radius: 10px;
+    &:hover {
+      border: none;
+      filter: brightness(90%);
+    }
   }
 }
 .close-enter-active,

@@ -1,6 +1,5 @@
 <template>
   <div class="root">
-    <h1>Lista prezentowa</h1>
     <form @submit.prevent="submitSearch" class="input-container">
       <button><img src="../../assets/search_icon.svg" alt="input" /></button>
       <input
@@ -39,7 +38,7 @@ import BaseButtonMedium from "../ui/BaseButtonMedium.vue";
 import ListSection from "./ListSection.vue";
 export default {
   components: { ListSection, BaseButtonMedium },
-  emits: ["min-max"],
+  emits: ["min-max-count"],
 
   data() {
     return {
@@ -116,13 +115,15 @@ export default {
       ];
 
       for (let i = 0; i < giftPriceRanges.length; i++) {
-        giftPriceRanges[i].sort((a, b) => (a.price > b.price ? 1 : -1));
+        giftPriceRanges[i].sort((a, b) => (+a.price > +b.price ? 1 : -1));
       }
       this.isLoaded = true;
     },
     showTrueGifts(gifts) {
-      const showTrueGifts = gifts.filter(gift => gift.show === "true");
-      console.log(showTrueGifts);
+      const showTrueGifts = gifts.filter(
+        gift => !!gift.show || gift.show === "false"
+      );
+      return showTrueGifts;
     },
 
     async loadGifts() {
@@ -130,18 +131,17 @@ export default {
       try {
         const userId = this.$route.path.substr(this.$route.path.length - 28);
         await this.$store.dispatch("gifts/loadGifts", userId);
-        this.gifts = this.$store.getters["gifts/gifts"];
-
+        this.gifts = this.showTrueGifts(this.$store.getters["gifts/gifts"]);
         this.setGifts(this.gifts);
-        const minMax = this.calculateMinMax(this.gifts);
-        this.$emit("min-max", minMax);
+        const minMaxCount = this.calculateMinMaxCount(this.gifts);
+        this.$emit("min-max-count", minMaxCount);
       } catch (error) {
         this.error = error.message || "Something went wrong!";
       }
       this.isLoading = false;
     },
 
-    calculateMinMax(gifts) {
+    calculateMinMaxCount(gifts) {
       let lowest = Number.POSITIVE_INFINITY;
       let highest = Number.NEGATIVE_INFINITY;
       let tmp;
@@ -151,17 +151,19 @@ export default {
           if (tmp < lowest) lowest = tmp;
           if (tmp > highest) highest = tmp;
         }
-        const minMax = {
+        const minMaxCount = {
           min: lowest,
           max: highest,
+          count: gifts.length,
         };
-        return minMax;
+        return minMaxCount;
       } else {
-        const minMax = {
+        const minMaxCount = {
           min: 0,
           max: 0,
+          count: gifts.length,
         };
-        return minMax;
+        return minMaxCount;
       }
     },
     clearSearch() {

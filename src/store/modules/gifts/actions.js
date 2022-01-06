@@ -6,7 +6,8 @@ export default {
       price: data.price,
       url: data.url,
       imgUrl: data.imgUrl,
-      show: false,
+      show: true,
+      isReserved: false,
     };
 
     const token = context.rootGetters.token;
@@ -29,7 +30,7 @@ export default {
 
     context.commit("addGift", {
       ...giftData,
-      id: userId,
+      id: giftID,
     });
   },
 
@@ -54,10 +55,50 @@ export default {
         url: responseData[key].url,
         imgUrl: responseData[key].imgUrl,
         show: responseData[key].show,
+        isReserved: responseData[key].isReserved,
       };
       gifts.push(gift);
     }
 
     context.commit("setGifts", gifts);
+  },
+  async changeShowOfGift(context, payload) {
+    const show = { show: payload.show };
+    const userId = context.rootGetters.userId;
+    const giftId = payload.giftId;
+    const token = context.rootGetters.token;
+    const response = await fetch(
+      `https://gifty-7a577-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/gifts/${giftId}.json?auth=` +
+        token,
+      {
+        method: "PATCH",
+        body: JSON.stringify(show),
+      }
+    );
+
+    if (!response.ok) {
+      // error ...
+    }
+
+    // context.commit("changeShowOfGift", {
+    // giftId,show
+    // });
+  },
+  async deleteGift(context, payload) {
+    const giftId = payload.giftId;
+    const userId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
+
+    const response = await fetch(
+      `https://gifty-7a577-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/gifts/${giftId}.json?auth=` +
+        token,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      // error ...
+    }
   },
 };

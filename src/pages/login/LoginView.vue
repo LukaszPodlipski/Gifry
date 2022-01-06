@@ -1,6 +1,8 @@
 <template>
   <base-card class="base-card">
-    <h1>Logowanie</h1>
+    <template v-slot:title>
+      <h1>Logowanie</h1>
+    </template>
     <form @submit.prevent="submitForm">
       <label for="name" v-if="isSignup">Imie</label>
       <input id="name" v-if="isSignup" type="text" v-model.trim="name" />
@@ -125,11 +127,6 @@ export default {
   flex-direction: column;
   align-items: center;
 
-  h1 {
-    color: #fefefe;
-    font-size: 3rem;
-    margin-bottom: 4rem;
-  }
   form {
     display: flex;
     flex-direction: column;
@@ -139,6 +136,7 @@ export default {
     padding: 2rem 4rem 0rem 4rem;
     border: 2px solid #9aa0a6;
     border-radius: 15px;
+    margin-top: 2rem;
     label {
       font-size: 1.3rem;
       text-align: center;

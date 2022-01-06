@@ -1,6 +1,7 @@
 <template>
   <div :class="place">
     <div class="card">
+      <slot name="title"></slot>
       <slot></slot>
     </div>
   </div>
@@ -35,5 +36,10 @@ div {
   border-radius: 20px;
   margin: 0 auto;
   padding: 5rem 0 5rem 0;
+}
+h1 {
+  color: #fefefe;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 </style>

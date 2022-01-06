@@ -12,7 +12,7 @@
       <div class="gift-summary">
         <div>
           <p>Liczba pomysłów</p>
-          <p>{{ giftsCount }}</p>
+          <p>{{ count }}</p>
         </div>
         <div class="line"></div>
         <div>
@@ -30,7 +30,10 @@
       </div>
     </div>
     <base-card class="base-card" place="listPlace">
-      <gifts-list @min-max="setMinMaxValues" ref="scrollToMe"> </gifts-list>
+      <template v-slot:title> <h1>Lista prezentowa</h1> </template>
+
+      <gifts-list @min-max-count="setMinMaxCountValues" ref="scrollToMe">
+      </gifts-list>
     </base-card>
   </div>
 </template>
@@ -42,6 +45,7 @@ export default {
     return {
       minGiftValue: 0,
       maxGiftValue: 0,
+      count: 0,
       userName: "",
     };
   },
@@ -66,9 +70,10 @@ export default {
         element.scrollIntoView({ behavior: "smooth" });
       }
     },
-    setMinMaxValues(minMax) {
-      this.minGiftValue = minMax.min;
-      this.maxGiftValue = minMax.max;
+    setMinMaxCountValues(minMaxCount) {
+      this.minGiftValue = minMaxCount.min;
+      this.maxGiftValue = minMaxCount.max;
+      this.count = minMaxCount.count;
     },
     async loadName() {
       try {

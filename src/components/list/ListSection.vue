@@ -10,7 +10,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>
@@ -24,7 +23,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>
@@ -38,7 +36,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>
@@ -52,7 +49,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>
@@ -66,7 +62,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>
@@ -80,7 +75,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>
@@ -94,7 +88,6 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
-          :show="gift.show"
         ></list-item>
       </ul>
     </div>

@@ -8,7 +8,7 @@
 <style lang="scss" scoped>
 .loader {
   --path: #2f3545;
-  --dot: #5628ee;
+  --dot: red;
   --duration: 3s;
   width: 44px;
   height: 44px;
