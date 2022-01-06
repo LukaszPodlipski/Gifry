@@ -18,7 +18,6 @@ export default {
   },
   created() {
     this.$store.dispatch("tryLogin");
-    console.log(process.env.APP_TEST);
   },
 };
 </script>

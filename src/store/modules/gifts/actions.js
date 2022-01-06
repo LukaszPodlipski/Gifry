@@ -1,3 +1,5 @@
+const PROJECT_URL = process.env.VUE_APP_FIREBASE_PROJECT_URL;
+
 export default {
   async addGift(context, data) {
     const userId = context.rootGetters.userId;
@@ -14,8 +16,7 @@ export default {
 
     const giftID = "_" + Math.random().toString(36).substr(2, 9);
     const response = await fetch(
-      `https://gifty-7a577-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/gifts/${giftID}.json?auth=` +
-        token,
+      `${PROJECT_URL}/users/${userId}/gifts/${giftID}.json?auth=` + token,
       {
         method: "PUT",
         body: JSON.stringify(giftData),
@@ -36,9 +37,7 @@ export default {
 
   async loadGifts(context, payload) {
     const userId = payload;
-    const response = await fetch(
-      `https://gifty-7a577-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/gifts.json`
-    );
+    const response = await fetch(`${PROJECT_URL}/users/${userId}/gifts.json`);
     const responseData = await response.json();
     if (!response.ok) {
       const error = new Error(responseData.message || "Failed to fetch!");
@@ -68,8 +67,7 @@ export default {
     const giftId = payload.giftId;
     const token = context.rootGetters.token;
     const response = await fetch(
-      `https://gifty-7a577-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/gifts/${giftId}.json?auth=` +
-        token,
+      `${PROJECT_URL}/users/${userId}/gifts/${giftId}.json?auth=` + token,
       {
         method: "PATCH",
         body: JSON.stringify(show),
@@ -90,8 +88,7 @@ export default {
     const token = context.rootGetters.token;
 
     const response = await fetch(
-      `https://gifty-7a577-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}/gifts/${giftId}.json?auth=` +
-        token,
+      `${PROJECT_URL}/users/${userId}/gifts/${giftId}.json?auth=` + token,
       {
         method: "DELETE",
       }
