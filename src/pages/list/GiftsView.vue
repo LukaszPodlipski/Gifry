@@ -40,8 +40,8 @@ export default {
   props: ["id"],
   data() {
     return {
-      minGiftValue: null,
-      maxGiftValue: null,
+      minGiftValue: 0,
+      maxGiftValue: 0,
       userName: "",
     };
   },

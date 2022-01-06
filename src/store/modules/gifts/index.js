@@ -6,14 +6,14 @@ export default {
   namespaced: true,
   state: {
     gifts: [
-      {
-        id: "g1",
-        name: "Barwnik do tkanin Simplicol",
-        price: 27.99,
-        url: "https://www.drogerienatura.pl/simplicol-instensiv-barwnik-do-tkanin-aksamitna-czern-559-g.html?utm_content=products&google_pro_id=5S52519&utm_source=organic_shopping&utm_medium=organic&gclid=EAIaIQobChMIycGh3bSU9QIVYxDmCh2uTQMOEAQYAyABEgK4T_D_BwE&gclsrc=aw.ds",
-        imgUrl:
-          "https://api.drogerienatura.pl/img/480/480/convert/webp//pub/media/catalog/product/1/2/120640_pim.jpg",
-      },
+      // {
+      //   id: "g1",
+      //   name: "Barwnik do tkanin Simplicol",
+      //   price: 27.99,
+      //   url: "https://www.drogerienatura.pl/simplicol-instensiv-barwnik-do-tkanin-aksamitna-czern-559-g.html?utm_content=products&google_pro_id=5S52519&utm_source=organic_shopping&utm_medium=organic&gclid=EAIaIQobChMIycGh3bSU9QIVYxDmCh2uTQMOEAQYAyABEgK4T_D_BwE&gclsrc=aw.ds",
+      //   imgUrl:
+      //     "https://api.drogerienatura.pl/img/480/480/convert/webp//pub/media/catalog/product/1/2/120640_pim.jpg",
+      // },
       // {
       //   id: "g2",
       //   name: "Drapak dla kota",

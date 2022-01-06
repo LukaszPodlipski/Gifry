@@ -120,6 +120,10 @@ export default {
       }
       this.isLoaded = true;
     },
+    showTrueGifts(gifts) {
+      const showTrueGifts = gifts.filter(gift => gift.show === "true");
+      console.log(showTrueGifts);
+    },
 
     async loadGifts() {
       this.isLoading = true;
