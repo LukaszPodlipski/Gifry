@@ -131,17 +131,32 @@ export default {
     color: white;
 
     .heading-text__title {
-      font-size: 3.5rem;
+      font-size: 3vw;
+
       .heading-text__name {
-        color: linear-gradient(
-          45deg,
-          #008d76 0%,
-          #176f85 29%,
-          #5411f2 66%,
-          #a0634b 100%
-        );
+        background-size: 400% 400%;
+        color: #fefefe;
         letter-spacing: 2px;
-        animation: Gradient 15s ease infinite;
+        color: #eb6a79;
+        background-image: linear-gradient(
+          45deg,
+          #30f5d4 0%,
+          #36cbf0 29%,
+          #9365ff 66%,
+          #ff8e61 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: hue 15s infinite linear;
+
+        @-webkit-keyframes hue {
+          from {
+            -webkit-filter: hue-rotate(0deg);
+          }
+          to {
+            -webkit-filter: hue-rotate(-360deg);
+          }
+        }
       }
     }
 

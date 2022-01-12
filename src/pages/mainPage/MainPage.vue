@@ -61,7 +61,7 @@ export default {
     z-index: 1;
     background: inherit;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     height: 65vh;
     width: 85vw;
@@ -71,7 +71,7 @@ export default {
       width: 50%;
 
       .heading-text__title {
-        font-size: 4rem;
+        font-size: 3.5vw;
         font-weight: 400;
         line-height: 150%;
         color: #fefefe;
@@ -85,7 +85,7 @@ export default {
         margin-top: 2rem;
         width: 80%;
         line-height: 200%;
-        font-size: 2rem;
+        font-size: 1.5vw;
         letter-spacing: 1px;
         color: #fefefe8a;
         border-radius: 15px;
