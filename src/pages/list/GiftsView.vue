@@ -133,8 +133,15 @@ export default {
     .heading-text__title {
       font-size: 3.5rem;
       .heading-text__name {
-        color: #c4d2ff;
+        color: linear-gradient(
+          45deg,
+          #008d76 0%,
+          #176f85 29%,
+          #5411f2 66%,
+          #a0634b 100%
+        );
         letter-spacing: 2px;
+        animation: Gradient 15s ease infinite;
       }
     }
 
