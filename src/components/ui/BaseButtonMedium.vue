@@ -62,6 +62,7 @@ a {
   margin-right: 0.5rem;
   display: inline-block;
   font-size: 1.3rem;
+  text-align: center;
 }
 a:hover,
 a:active,

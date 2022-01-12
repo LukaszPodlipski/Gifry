@@ -1,5 +1,6 @@
 const APIKEY = process.env.VUE_APP_FIREBASE_API;
 const PROJECT_URL = process.env.VUE_APP_FIREBASE_PROJECT_URL;
+let timer;
 
 export default {
   async login(context, payload) {
@@ -40,9 +41,18 @@ export default {
       );
       throw error;
     }
+    const expiresIn = +responseData.expiresIn * 1000;
+    // const expiresIn = 5000;
+    const expirationDate = new Date().getTime() + expiresIn;
 
     localStorage.setItem("token", responseData.idToken);
     localStorage.setItem("userId", responseData.localId);
+    localStorage.setItem("tokenExpiration", expirationDate);
+
+    timer = setTimeout(function () {
+      context.dispatch("autoLogout");
+    }, expiresIn);
+
     if (mode === "signup") {
       context.dispatch("setUserName", {
         name: payload.name,
@@ -59,6 +69,17 @@ export default {
   tryLogin(context) {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
+    const tokenExpiration = localStorage.getItem("tokenExpiration");
+
+    const expiresIn = +tokenExpiration - new Date().getTime();
+
+    if (expiresIn < 0) {
+      return;
+    }
+
+    timer = setTimeout(function () {
+      context.dispatch("autoLogout");
+    }, expiresIn);
 
     if (token && userId) {
       context.commit("setUser", {
@@ -69,6 +90,12 @@ export default {
   },
 
   logout(context) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("tokenExpiration");
+
+    clearTimeout(timer);
+
     context.commit("setUser", {
       token: null,
       userId: null,
@@ -101,5 +128,9 @@ export default {
     }
 
     context.commit("setName", responseData);
+  },
+  autoLogout(context) {
+    context.dispatch("logout");
+    context.commit("setAutoLogout");
   },
 };

@@ -1,12 +1,19 @@
 <template>
-  <div class="root">
-    <form @submit.prevent="submitSearch" class="input-container">
-      <button><img src="../../assets/search_icon.svg" alt="input" /></button>
+  <div class="gifts-list">
+    <form @submit.prevent="submitSearch" class="search-input-container">
+      <button class="search-input__submit-icon">
+        <img
+          src="../../assets/search_icon.svg"
+          alt="input"
+          class="search-input__submit-icon_image"
+        />
+      </button>
       <input
         type="text"
         placeholder="Szukaj"
         id="search"
         v-model.trim="searchQuery"
+        class="search-input"
       />
       <img
         src="../../assets/close__icon.svg"
@@ -27,12 +34,15 @@
       :giftsTo1000="giftsTo1000"
       :giftsUnder1000="giftsUnder1000"
     ></list-section>
-    <div v-else class="no-gifts" @click="goToEditList">
-      <p>Dodaj swój pierwszy prezent!</p>
-      <base-button-medium>Twoja lista</base-button-medium>
+    <div v-else class="gift-list__no-gifts-info" @click="goToEditList">
+      <p class="no-gifts-info__text">Dodaj swój pierwszy prezent!</p>
+      <base-button-medium class="no-gifts-info__button"
+        >Twoja lista</base-button-medium
+      >
     </div>
   </div>
 </template>
+
 <script>
 import BaseButtonMedium from "../ui/BaseButtonMedium.vue";
 import ListSection from "./ListSection.vue";
@@ -54,6 +64,7 @@ export default {
       gifts: [],
     };
   },
+
   computed: {
     filteredGifts() {
       const query = this.searchQuery;
@@ -66,6 +77,7 @@ export default {
             .split(" ")
             .every(v => item.name.toLowerCase().includes(v));
         });
+
         return newGifts;
       } else {
         return this.gifts;
@@ -77,6 +89,7 @@ export default {
     submitSearch() {
       this.setGifts(this.filteredGifts);
     },
+
     setGifts(giftsList) {
       this.giftsTo50 = [];
       this.giftsTo100 = [];
@@ -117,8 +130,10 @@ export default {
       for (let i = 0; i < giftPriceRanges.length; i++) {
         giftPriceRanges[i].sort((a, b) => (+a.price > +b.price ? 1 : -1));
       }
+
       this.isLoaded = true;
     },
+
     showTrueGifts(gifts) {
       const showTrueGifts = gifts.filter(
         gift => !!gift.show || gift.show === "false"
@@ -131,9 +146,12 @@ export default {
       try {
         const userId = this.$route.path.substr(this.$route.path.length - 28);
         await this.$store.dispatch("gifts/loadGifts", userId);
+
         this.gifts = this.showTrueGifts(this.$store.getters["gifts/gifts"]);
         this.setGifts(this.gifts);
+
         const minMaxCount = this.calculateMinMaxCount(this.gifts);
+
         this.$emit("min-max-count", minMaxCount);
       } catch (error) {
         this.error = error.message || "Something went wrong!";
@@ -145,17 +163,20 @@ export default {
       let lowest = Number.POSITIVE_INFINITY;
       let highest = Number.NEGATIVE_INFINITY;
       let tmp;
+
       if (gifts.length > 0) {
         for (let i = gifts.length - 1; i >= 0; i--) {
           tmp = +gifts[i].price;
           if (tmp < lowest) lowest = tmp;
           if (tmp > highest) highest = tmp;
         }
+
         const minMaxCount = {
           min: lowest,
           max: highest,
           count: gifts.length,
         };
+
         return minMaxCount;
       } else {
         const minMaxCount = {
@@ -170,10 +191,12 @@ export default {
       this.searchQuery = "";
       this.setGifts(this.gifts);
     },
+
     goToEditList() {
       this.$router.push("/edit-list");
     },
   },
+
   watch: {
     searchQuery: function (value) {
       if (!value) {
@@ -183,6 +206,7 @@ export default {
       }
     },
   },
+
   created() {
     this.loadGifts();
   },
@@ -190,22 +214,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.root {
+.gifts-list {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  h1 {
-    font-size: 3rem;
-    color: #fefefe;
-  }
-  .input-container {
+  .search-input-container {
     display: flex;
     flex-direction: row;
     height: 50px;
     margin: 50px 0;
     position: relative;
+
     .clear-icon {
       position: absolute;
       top: 50%;
@@ -214,7 +235,7 @@ export default {
       cursor: pointer;
     }
 
-    input {
+    .search-input {
       background-color: transparent;
       border: 1px solid #9aa0a6;
       border-radius: 50px;
@@ -224,61 +245,70 @@ export default {
       font-size: 1rem;
       color: #fefefe;
       transform: translate(-1.5rem, 0.1rem);
-    }
-    input:hover {
-      border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
-    }
-    input:focus {
-      border-color: #4d90fe;
+
+      &:hover {
+        border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+      }
+
+      &:focus {
+        border-color: #4d90fe;
+      }
+
+      &[type="submit"] {
+        border-radius: 2px;
+        background: #f2f2f2;
+        border: 1px solid #f2f2f2;
+        color: #757575;
+        font-size: 14px;
+        font-weight: bold;
+        width: 100px;
+        padding: 0 16px;
+        height: 36px;
+      }
+
+      &[type="submit"]:hover {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        background: #f8f8f8;
+        border: 1px solid #c6c6c6;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        color: #222;
+      }
     }
 
-    input[type="submit"] {
-      border-radius: 2px;
-      background: #f2f2f2;
-      border: 1px solid #f2f2f2;
-      color: #757575;
-      font-size: 14px;
-      font-weight: bold;
-      width: 100px;
-      padding: 0 16px;
-      height: 36px;
-    }
-    input[type="submit"]:hover {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      background: #f8f8f8;
-      border: 1px solid #c6c6c6;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      color: #222;
-    }
-    button {
+    .search-input__submit-icon {
       background-color: transparent;
       border: none;
       transform: translate(1.5rem, 0.1rem);
       cursor: pointer;
       z-index: 3;
-      img {
+
+      .search-input__submit-icon_image {
         margin: 10px;
         z-index: 3;
       }
     }
   }
-  .no-gifts {
+
+  .gift-list__no-gifts-info {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #171717;
     padding: 0.5rem 1.5rem;
     border-radius: 10px;
-    p {
+
+    .no-gifts-info__text {
       color: #fefefe;
       margin-right: 1rem;
       font-size: 1.2rem;
       letter-spacing: 1px;
     }
-    button {
+
+    .no-gifts-info__button {
       background-color: #981314;
       font-size: 1rem;
       padding: 0.8rem 1.2rem;
+
       &:hover {
         background-color: #7c0e0e;
       }

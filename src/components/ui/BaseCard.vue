@@ -36,6 +36,7 @@ div {
   border-radius: 20px;
   margin: 0 auto;
   padding: 5rem 0 5rem 0;
+  position: relative;
 }
 h1 {
   color: #fefefe;

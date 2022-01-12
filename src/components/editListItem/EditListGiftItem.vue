@@ -1,36 +1,42 @@
 <template>
-  <div class="gift-item">
-    <img :src="imgUrl" alt="" class="gift-img" />
-    <div class="description">
-      <p class="title">{{ name }}</p>
-      <div class="line"></div>
-      <p class="price">{{ price }} zł</p>
+  <div class="edit-list__gift-item">
+    <img :src="imgUrl" alt="" class="edit-list__gift-item__image" />
+    <div class="edit-list__description">
+      <p class="edit-list__description__title">{{ name }}</p>
+      <div class="edit-list__description__line"></div>
+      <p class="edit-list__description__price">{{ price }} zł</p>
     </div>
-    <div class="controls-group">
-      <div class="controls">
+    <div class="edit-list__controls">
+      <div class="edit-list__controls__buttons">
         <img
-          class="control-display-icon"
+          class="edit-list__controls__buttons_icon"
           src="../../assets/unshow_icon.svg"
           alt=""
           @click="controlShowOfGift"
           v-if="giftHasShowTrue"
         />
         <img
-          class="control-display-icon"
+          class="edit-list__controls__buttons_icon"
           src="../../assets/show_icon.svg"
           alt=""
           @click="controlShowOfGift"
           v-else
         />
         <img
-          class="delete-icon"
+          class="edit-list__controls__buttons_icon"
           src="../../assets/delete_icon.svg"
           alt=""
-          @click="deleteGiftEmmit"
+          @click="deleteGiftEmit"
         />
       </div>
-      <base-button-small class="open-gift-url-btn" link :href="url"
+      <base-button-small
+        class="edit-list__controls__view-button"
+        link
+        :href="url"
         >Zobacz</base-button-small
+      >
+      <base-button-small class="edit-list__controls__edit-button"
+        >Edytuj</base-button-small
       >
     </div>
   </div>
@@ -41,11 +47,15 @@ import BaseButtonSmall from "../ui/BaseButtonSmall.vue";
 export default {
   components: { BaseButtonSmall },
   props: ["id", "name", "price", "url", "imgUrl", "show"],
+  emits: ["delete-gift"],
+
   data() {
     return {
       giftHasShow: this.show,
+      errorMessage: "Error",
     };
   },
+
   computed: {
     giftHasShowTrue() {
       if (this.giftHasShow || this.giftHasShow === "true") {
@@ -55,6 +65,7 @@ export default {
       }
     },
   },
+
   methods: {
     async controlShowOfGift() {
       try {
@@ -64,10 +75,11 @@ export default {
         });
         this.giftHasShow = !this.giftHasShow;
       } catch (error) {
-        //
+        this.errorMessage = error.message || "Błąd podczas usuwania prezentu.";
       }
     },
-    deleteGiftEmmit() {
+
+    deleteGiftEmit() {
       this.$emit("delete-gift", this.id);
     },
   },
@@ -75,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gift-item {
+.edit-list__gift-item {
   display: grid;
   grid-template-columns: 0.7fr 3fr 0.4fr;
   grid-template-rows: 1fr;
@@ -85,63 +97,95 @@ export default {
   width: 100%;
   border-radius: 15px;
   margin: 1rem 0;
-  .gift-img {
+
+  .edit-list__gift-item__image {
     grid-area: image;
-    height: 150px;
-    max-width: 150px;
+    height: 200px;
+    width: 200px;
     align-self: start;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     object-fit: cover;
     background-color: #fefefe;
   }
-  .description {
+  .edit-list__description {
     grid-area: description;
     margin: 0 2rem 0 2rem;
     display: flex;
     flex-direction: column;
-    justify-self: start;
-    .title {
+    justify-self: flex-start;
+
+    .edit-list__description__title {
       font-size: 1.5rem;
       color: #fefefe;
     }
-    .line {
+
+    .edit-list__description__line {
       border-top: 2px solid #9aa0a6;
       margin: 1rem 0;
     }
-    .price {
+
+    .edit-list__description__price {
       font-size: 1.5rem;
       color: #9aa0a6;
     }
   }
-  .controls-group {
+
+  .edit-list__controls {
     grid-area: controls;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.5rem;
-    .controls {
+    padding: 0.7rem;
+    background-color: #1c1c1c;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    height: 100%;
+
+    .edit-list__controls__buttons {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      img {
+
+      .edit-list__controls__buttons_icon {
         object-fit: cover;
         margin: 0.5rem;
         cursor: pointer;
         height: 40px;
+
         &:hover {
           filter: brightness(90%);
         }
       }
     }
-    .open-gift-url-btn {
-      font-size: 1rem;
+
+    .edit-list__controls__view-button {
+      font-size: 0.8rem;
       padding: 0.8rem 1rem;
       margin: 0.5rem;
       width: 90%;
+
       &:hover {
         filter: brightness(90%);
       }
+    }
+
+    .edit-list__controls__edit-button {
+      color: #fefefe;
+      margin: 0.5rem;
+      font-size: 0.8rem;
+      padding: 0.8rem 1rem;
+      margin: 0.5rem;
+      width: 90%;
+
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+
+    .error-message {
+      position: absolute;
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="list">
-    <div class="listElement" v-if="giftsTo50.length > 0">
-      <p>Do 50 zł</p>
-      <ul class="list">
+  <div class="gifts-list">
+    <div class="gifts-list__element" v-if="giftsTo50.length > 0">
+      <p class="gifts-list__element__description">Do 50 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo50"
           :key="gift.id"
@@ -10,12 +10,13 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
-    <div class="listElement" v-if="giftsTo100.length > 0">
-      <p>Do 100 zł</p>
-      <ul class="list">
+    <div class="gifts-list__element" v-if="giftsTo100.length > 0">
+      <p class="gifts-list__element__description">Do 100 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo100"
           :key="gift.id"
@@ -23,12 +24,13 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
-    <div class="listElement" v-if="giftsTo200.length > 0">
-      <p>Do 200 zł</p>
-      <ul class="list">
+    <div class="gifts-list__element" v-if="giftsTo200.length > 0">
+      <p class="gifts-list__element__description">Do 200 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo200"
           :key="gift.id"
@@ -36,12 +38,13 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
-    <div class="listElement" v-if="giftsTo300.length > 0">
-      <p>Do 300 zł</p>
-      <ul class="list">
+    <div class="gifts-list__element" v-if="giftsTo300.length > 0">
+      <p class="gifts-list__element__description">Do 300 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo300"
           :key="gift.id"
@@ -49,12 +52,13 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
-    <div class="listElement" v-if="giftsTo500.length > 0">
-      <p>Do 500 zł</p>
-      <ul class="list">
+    <div class="gifts-list__element" v-if="giftsTo500.length > 0">
+      <p class="gifts-list__element__description">Do 500 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo500"
           :key="gift.id"
@@ -62,12 +66,13 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
-    <div class="listElement" v-if="giftsTo1000.length > 0">
-      <p>Do 1000 zł</p>
-      <ul class="list">
+    <div class="gifts-list__element" v-if="giftsTo1000.length > 0">
+      <p class="gifts-list__element__description">Do 1000 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo1000"
           :key="gift.id"
@@ -75,12 +80,13 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
-    <div class="listElement" v-if="giftsUnder1000.length > 0">
-      <p>Powyżej 1000 zł</p>
-      <ul class="list">
+    <div class="gifts-list__element" v-if="giftsUnder1000.length > 0">
+      <p class="gifts-list__element__description">Powyżej 1000 zł</p>
+      <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsUnder1000"
           :key="gift.id"
@@ -88,6 +94,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          class="gifts-list__element__list__item"
         ></list-item>
       </ul>
     </div>
@@ -113,29 +120,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.list {
+.gifts-list {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  .listElement {
+
+  .gifts-list__element {
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    p {
+
+    .gifts-list__element__description {
       color: #fefefe;
       font-size: 1.2rem;
       margin-bottom: -20px;
-      background-color: #8e0e0f;
+      background-color: #0e7f8e;
       padding: 0.5rem 1rem 1.2rem 1rem;
       transform: translateY(30px);
       z-index: -1;
       border-radius: 10px 10px 0px 0px;
     }
-    .list {
-      .gift {
-        width: 100%;
+
+    .gifts-list__element__list {
+      .gifts-list__element__list__item:hover {
+        -webkit-box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);
+        -moz-box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);
+        box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);
       }
     }
   }
