@@ -128,7 +128,7 @@ export default {
 .gifts-intro {
   .gifts-intro__heading-text {
     padding: 200px 12vw 0px 12vw;
-    color: white;
+    color: #fefefe;
 
     .heading-text__title {
       font-size: 3vw;
@@ -138,6 +138,23 @@ export default {
         color: #fefefe;
         letter-spacing: 2px;
         color: #eb6a79;
+
+        background-image: -webkit-linear-gradient(
+          45deg,
+          #30f5d4 0%,
+          #36cbf0 29%,
+          #9365ff 66%,
+          #ff8e61 100%
+        );
+
+        background-image: -moz-linear-gradient(
+          45deg,
+          #008d76 0%,
+          #176f85 29%,
+          #5411f2 66%,
+          #a0634b 100%
+        );
+
         background-image: linear-gradient(
           45deg,
           #30f5d4 0%,
@@ -145,9 +162,30 @@ export default {
           #9365ff 66%,
           #ff8e61 100%
         );
+
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         -webkit-animation: hue 15s infinite linear;
+        background-clip: text;
+        animation: hue 15s infinite linear;
+
+        @keyframes hue {
+          from {
+            -webkit-filter: hue-rotate(0deg);
+          }
+          to {
+            -webkit-filter: hue-rotate(-360deg);
+          }
+        }
+
+        @-moz-keyframes hue {
+          from {
+            -webkit-filter: hue-rotate(0deg);
+          }
+          to {
+            -webkit-filter: hue-rotate(-360deg);
+          }
+        }
 
         @-webkit-keyframes hue {
           from {

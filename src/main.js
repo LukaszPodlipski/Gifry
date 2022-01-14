@@ -2,6 +2,7 @@ import App from "./App.vue";
 import Vue from "vue";
 import router from "./router";
 import store from "./store/store";
+import vuetify from "./vuetify";
 import BaseButtonSmall from "./components/ui/BaseButtonSmall.vue";
 import BaseButtonMedium from "./components/ui/BaseButtonMedium.vue";
 import BaseButtonLarge from "./components/ui/BaseButtonLarge.vue";
@@ -22,4 +23,5 @@ new Vue({
   render: h => h(App),
   router: router,
   store: store,
+  vuetify: vuetify,
 }).$mount("#app");
