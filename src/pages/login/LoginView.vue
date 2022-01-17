@@ -1,7 +1,7 @@
 <template>
   <base-card class="base-card">
     <template v-slot:title>
-      <h1>Logowanie</h1>
+      <h1 class="base-card__title">Logowanie</h1>
     </template>
     <login-form></login-form>
   </base-card>
@@ -16,11 +16,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .base-card {
   margin-top: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-height: 900px) {
+    margin-top: 15rem;
+  }
 }
 </style>

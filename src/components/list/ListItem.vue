@@ -12,9 +12,18 @@
       <div class="gift-list-item__content__line"></div>
       <div class="gift-list-item__content__description">
         <p class="content__description__price">{{ price }} zł</p>
-        <div>
-          <base-button-small link :href="url">Zobacz</base-button-small>
-          <base-button-small mode="black">Zarezerwuj</base-button-small>
+        <div class="gift-list-item__content__description_buttons">
+          <base-button-small
+            link
+            :href="url"
+            class="gift-list-item__content__button"
+            >Zobacz</base-button-small
+          >
+          <base-button-small
+            mode="black"
+            class="gift-list-item__content__button"
+            >Zarezerwuj</base-button-small
+          >
         </div>
       </div>
     </div>
@@ -70,6 +79,7 @@ export default {
   margin: 40px 0 20px 0;
   color: #fefefe;
   width: 100%;
+  min-width: 300px;
 
   .gift-list-item__image {
     border-radius: 15px 0px 0 15px;
@@ -77,6 +87,10 @@ export default {
     width: 180px;
     object-fit: cover;
     background-color: #fefefe;
+
+    @media only screen and (max-width: 900px) {
+      width: 100px;
+    }
   }
 
   .gift-list-item__content {
@@ -88,9 +102,17 @@ export default {
     justify-content: space-between;
     align-self: center;
 
+    @media only screen and (max-width: 900px) {
+      padding: 1rem 1rem 0.5rem 1rem;
+    }
+
     .gift-list-item__content__title {
       font-size: 1.5rem;
       font-weight: 600;
+
+      @media only screen and (max-width: 900px) {
+        font-size: 1rem;
+      }
     }
 
     .gift-list-item__content__description {
@@ -99,9 +121,31 @@ export default {
       align-items: center;
       justify-content: space-between;
 
+      @media only screen and (max-width: 900px) {
+        flex-direction: column;
+      }
+
       .content__description__price {
         font-size: 1.8rem;
         color: #9aa0a6;
+        @media only screen and (max-width: 900px) {
+          font-size: 1.5rem;
+          align-self: flex-start;
+          margin-left: 5%;
+          margin-bottom: 5px;
+        }
+      }
+      .gift-list-item__content__description_buttons {
+        @media only screen and (max-width: 900px) {
+          display: flex;
+          flex-direction: row;
+        }
+        .gift-list-item__content__button {
+          @media only screen and (max-width: 900px) {
+            font-size: 0.6rem;
+            margin: 0.2rem;
+          }
+        }
       }
     }
 
@@ -110,6 +154,9 @@ export default {
       height: 0;
       border: 1px solid #9aa0a698;
       margin: 1rem 0 1.5rem 0;
+      @media only screen and (max-width: 900px) {
+        margin: 0.8rem 0 0.8rem 0;
+      }
     }
   }
 }

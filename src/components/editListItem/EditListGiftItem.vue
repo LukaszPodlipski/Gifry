@@ -98,26 +98,47 @@ export default {
   border-radius: 15px;
   margin: 1rem 0;
 
+  @media only screen and (max-width: 1400px) {
+    grid-template-columns: 0.7fr 3fr;
+    grid-template-rows: 2fr;
+    grid-template-areas:
+      "image description"
+      "controls controls";
+  }
+
   .edit-list__gift-item__image {
     grid-area: image;
-    height: 200px;
-    width: 200px;
+    height: 100%;
+    width: 10vw;
     align-self: start;
+    justify-content: stretch;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     object-fit: cover;
     background-color: #fefefe;
+
+    @media only screen and (max-width: 1400px) {
+      width: 150px;
+      border-bottom-left-radius: 0px;
+    }
   }
   .edit-list__description {
     grid-area: description;
-    margin: 0 2rem 0 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-self: flex-start;
+    width: 90%;
+    height: 100%;
+    justify-self: center;
+    justify-content: center;
 
     .edit-list__description__title {
-      font-size: 1.5rem;
+      font-size: 1.5vw;
       color: #fefefe;
+
+      @media only screen and (max-width: 1200px) {
+        font-size: 1rem;
+      }
     }
 
     .edit-list__description__line {
@@ -126,8 +147,12 @@ export default {
     }
 
     .edit-list__description__price {
-      font-size: 1.5rem;
+      font-size: 1.5vw;
       color: #9aa0a6;
+
+      @media only screen and (max-width: 1200px) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -140,13 +165,23 @@ export default {
     background-color: #1c1c1c;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-
     height: 100%;
+    @media only screen and (max-width: 1400px) {
+      flex-direction: row;
+      border-top-right-radius: 0px;
+
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
 
     .edit-list__controls__buttons {
       display: flex;
       justify-content: space-between;
       width: 100%;
+
+      @media only screen and (max-width: 1400px) {
+        width: auto;
+      }
 
       .edit-list__controls__buttons_icon {
         object-fit: cover;

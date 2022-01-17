@@ -216,6 +216,11 @@ export default {
   border-radius: 15px;
   margin-top: 2rem;
 
+  @media only screen and (max-width: 750px) {
+    border: none;
+    margin-top: 0;
+  }
+
   .input-label {
     font-size: 1.3rem;
     text-align: center;
@@ -280,9 +285,16 @@ export default {
     height: 120px;
 
     .button {
-      padding: 0.8rem;
+      padding: 1rem;
       min-width: 30%;
       align-self: center;
+
+      @media only screen and (max-width: 550px) {
+        font-size: 0.8rem;
+      }
+      @media only screen and (max-width: 1200px) {
+        font-size: 0.7rem;
+      }
     }
   }
 

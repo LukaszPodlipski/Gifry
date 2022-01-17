@@ -35,7 +35,7 @@
     </div>
     <base-card class="base-card" place="listPlace">
       <template v-slot:title>
-        <h1>Lista prezentowa</h1>
+        <h1 class="base-card__title">Lista prezentowa</h1>
       </template>
 
       <gifts-list
@@ -130,9 +130,15 @@ export default {
     padding: 200px 12vw 0px 12vw;
     color: #fefefe;
 
+    @media only screen and (max-width: 600px) {
+      padding: 150px 8vw 0px 8vw;
+    }
+
     .heading-text__title {
       font-size: 3vw;
-
+      @media only screen and (max-width: 1000px) {
+        font-size: 2rem;
+      }
       .heading-text__name {
         background-size: 400% 400%;
         color: #fefefe;
@@ -203,6 +209,9 @@ export default {
       width: 30%;
       line-height: 160%;
       font-size: 1.2rem;
+      @media only screen and (max-width: 1250px) {
+        width: 100%;
+      }
     }
 
     .gifts-summary {
@@ -215,16 +224,40 @@ export default {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      @media only screen and (max-width: 1000px) {
+        max-width: 650px;
+        margin: 70px auto 0 auto;
+        padding: 0.5rem 0.8rem;
+        height: 80px;
+        width: 100%;
+      }
+      @media only screen and (max-width: 500px) {
+        height: 80px;
+        width: 100%;
+      }
 
       .gifts-summary__item {
         width: 24%;
         text-align: center;
+
+        @media only screen and (max-width: 1000px) {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          height: 80%;
+        }
 
         .gifts-summary__item__title {
           width: 100%;
           font-size: 1rem;
           color: #c6c6c6;
           margin: 0;
+          @media only screen and (max-width: 1000px) {
+            font-size: 0.8rem;
+          }
+          @media only screen and (max-width: 750px) {
+            font-size: 0.6rem;
+          }
         }
 
         .gifts-summary__item__count {
@@ -232,6 +265,12 @@ export default {
           font-weight: bold;
           line-height: 120%;
           color: #202124;
+          @media only screen and (max-width: 1000px) {
+            font-size: 1.5rem;
+          }
+          @media only screen and (max-width: 750px) {
+            font-size: 1.1rem;
+          }
         }
       }
 
@@ -244,6 +283,13 @@ export default {
       }
       .gift-summary__button {
         min-width: 140px;
+        @media only screen and (max-width: 750px) {
+          min-width: 100px;
+          font-size: 0.8rem;
+        }
+        @media only screen and (max-width: 550px) {
+          display: none;
+        }
       }
 
       .gift-summary__button:active {
@@ -252,6 +298,14 @@ export default {
     }
     .base-card {
       margin-top: 10rem;
+    }
+  }
+  .base-card__title {
+    @media only screen and (max-width: 1000px) {
+      font-size: 2rem;
+    }
+    @media only screen and (max-width: 550px) {
+      border-bottom: 0;
     }
   }
 }

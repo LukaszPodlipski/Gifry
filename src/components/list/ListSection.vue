@@ -130,6 +130,7 @@ export default {
     width: 60%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
 
     .gifts-list__element__description {
@@ -141,9 +142,14 @@ export default {
       transform: translateY(30px);
       z-index: -1;
       border-radius: 10px 10px 0px 0px;
+      min-width: 300px;
+      width: 100%;
     }
 
     .gifts-list__element__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .gifts-list__element__list__item:hover {
         -webkit-box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);
         -moz-box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);

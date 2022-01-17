@@ -273,6 +273,10 @@ export default {
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         color: #222;
       }
+
+      @media only screen and (max-width: 1000px) {
+        width: 100%;
+      }
     }
 
     .search-input__submit-icon {
@@ -313,6 +317,11 @@ export default {
         background-color: #7c0e0e;
       }
     }
+  }
+}
+.base-card__title {
+  @media only screen and (max-width: 1000px) {
+    font-size: 2rem;
   }
 }
 </style>

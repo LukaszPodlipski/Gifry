@@ -1,6 +1,6 @@
 <template>
   <div class="social-cards">
-    <social-card-element
+    <social-card-medium-element
       class="social-cards__first-card social-card_card"
       ref="leftCard"
       :key="leftCardStories.id"
@@ -12,8 +12,8 @@
       :daysAgo="leftCardStories.daysAgo"
       :id="leftCardStories.id"
       :class="{ 'in-front': isLeftOnFront, 'in-back': !isLeftOnFront }"
-    ></social-card-element>
-    <social-card-element
+    ></social-card-medium-element>
+    <social-card-medium-element
       class="social-cards__second-card social-card_card"
       ref="rightCard"
       :key="rightCardStories.id"
@@ -25,15 +25,15 @@
       :daysAgo="rightCardStories.daysAgo"
       :id="rightCardStories.id"
       :class="{ 'in-front': !isLeftOnFront, 'in-back': isLeftOnFront }"
-    ></social-card-element>
+    ></social-card-medium-element>
   </div>
 </template>
 
 <script>
-import socialCardElement from "./socialCardElement.vue";
+import socialCardMediumElement from "./socialCardMediumElement.vue";
 export default {
   components: {
-    socialCardElement,
+    socialCardMediumElement,
   },
   data() {
     return {

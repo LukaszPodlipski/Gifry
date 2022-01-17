@@ -6,16 +6,21 @@
       class="navigation__logo"
       @click="logoClick"
     />
-    <div>
-      <base-button-small go :to="editListLink" v-if="isLoggedIn">{{
-        listButtonCaption
-      }}</base-button-small>
+    <div class="navigation__buttons">
+      <base-button-small
+        go
+        :to="editListLink"
+        v-if="isLoggedIn"
+        class="navigation__buttons__button"
+        >{{ listButtonCaption }}</base-button-small
+      >
       <base-button-small
         v-if="!isLoginPage"
         go
         :to="loginLink"
         :class="{ flat: !isLoggedIn }"
         @click.native="logout"
+        class="navigation__buttons__button"
         >{{ loginCaption }}</base-button-small
       >
     </div>
@@ -99,11 +104,28 @@ export default {
   height: 150px;
   width: 100%;
   padding: 40px 3vw;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  @media only screen and (max-width: 1000px) {
+    padding: 30px 20px;
+  }
   .navigation__logo {
     height: 100%;
     cursor: pointer;
+    @media only screen and (max-width: 1000px) {
+      height: 40px;
+    }
+  }
+  .navigation__buttons {
+    display: flex;
+    flex-direction: row;
+
+    .navigation__buttons__button {
+      @media only screen and (max-width: 550px) {
+        font-size: 0.7rem;
+        padding: 0.8rem;
+      }
+    }
   }
 }
 .flat {
