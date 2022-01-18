@@ -21,7 +21,7 @@ Vue.component("base-card", BaseCard);
 new Vue({
   el: "#app",
   render: h => h(App),
-  router: router,
-  store: store,
-  vuetify: vuetify,
+  router,
+  store,
+  vuetify,
 }).$mount("#app");

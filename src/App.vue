@@ -1,10 +1,12 @@
 <template>
   <div id="app" :class="{ 'full-screen': isMainorLoginPage }">
     <the-navigation></the-navigation>
+
     <the-background
       class="background-image"
       :class="{ 'full-screen': isMainorLoginPage }"
     ></the-background>
+
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
@@ -54,6 +56,10 @@ export default {
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap");
 
+.primary {
+  color: var(--v-primary);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,11 +99,9 @@ html {
   right: 0;
   z-index: -1;
   overflow: hidden;
-  /* background-size: cover; */
-  /* background-position: center -20px; */
-  /* padding: 150px 5vw; */
-  /* height: 900px; */
-  /* background-image: url("./assets/background_image4.jpg"); */
+  -webkit-box-shadow: inset 0px -39px 37px -21px rgba(23, 23, 23, 1);
+  -moz-box-shadow: inset 0px -39px 37px -21px rgba(23, 23, 23, 1);
+  box-shadow: inset 0px -39px 37px -21px rgba(23, 23, 23, 1);
 }
 .background-image::after {
   box-shadow: inset 0 40px 80px 16px;
