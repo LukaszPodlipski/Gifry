@@ -237,6 +237,10 @@ export default {
     border-radius: 20px;
     margin: 3rem 0;
 
+    @media only screen and (max-width: 500px) {
+      width: 80%;
+    }
+
     .add-gift-form__header {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
@@ -251,6 +255,10 @@ export default {
         font-size: 1.6rem;
         color: #fefefe;
         text-align: center;
+
+        @media only screen and (max-width: 500px) {
+          font-size: 1.2rem;
+        }
       }
 
       .header__close-icon {
@@ -269,6 +277,9 @@ export default {
       color: #9aa0a6;
       margin-top: 1rem;
       margin-bottom: 1rem;
+      @media only screen and (max-width: 500px) {
+        font-size: 1rem;
+      }
     }
 
     .add-gift-form__label:nth-child(1) {
@@ -332,6 +343,9 @@ export default {
       width: 20%;
       padding: 0.5rem;
       align-self: center;
+      @media only screen and (max-width: 500px) {
+        width: 40%;
+      }
     }
 
     .error-message {
@@ -374,6 +388,10 @@ export default {
     &:hover {
       border: none;
       filter: brightness(90%);
+    }
+
+    @media only screen and (max-width: 500px) {
+      font-size: 1rem;
     }
   }
   .menage-gift-error {
