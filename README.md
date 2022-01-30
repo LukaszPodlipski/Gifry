@@ -1,5 +1,5 @@
 <h1 align="left">
-  Gifty
+  MyGifty
 </h1>
 
 Techstack:
@@ -7,7 +7,7 @@ Vue, Vuex, Vue Router, Firebase for registration/login and Firebase Realtime Dat
 
 <h2 align="left">
 Example Gift list:
-https://giftyyy.netlify.app/gift-list/ZeFDfRdbNWevwdupgP37KvotApI3
+https://mygifty.pl/gift-list/ZeFDfRdbNWevwdupgP37KvotApI3
 </h2>
 
 <h2 align="left">
