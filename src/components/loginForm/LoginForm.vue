@@ -301,12 +301,13 @@ export default {
 
   .error-message {
     text-align: center;
+    font-size: 0.9rem;
     color: rgb(255, 255, 255);
     background-color: #0e7f8e;
     padding: 0.5rem 1rem;
     align-self: center;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem !important;
   }
 
   .spinner {

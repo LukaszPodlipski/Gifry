@@ -101,7 +101,7 @@ export default {
       }
 
       .heading-text__title {
-        font-size: 3.5vw;
+        font-size: 4rem;
         font-weight: 400;
         line-height: 150%;
         color: #fefefe;
@@ -112,6 +112,9 @@ export default {
         @media only screen and(min-width: 501px) and (max-width: 930px) {
           font-size: 3rem;
           text-align: center;
+        }
+        @media only screen and (max-width: 1920px) {
+          font-size: 3.5vw;
         }
 
         &:nth-child(2) {

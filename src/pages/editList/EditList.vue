@@ -29,7 +29,7 @@
         v-model="name.val"
         class="add-gift-form__input"
       />
-      <label for="price" class="add-gift-form__label">Cena</label>
+      <label for="price" class="add-gift-form__label">Cena za 1 szt.</label>
       <input
         id="price"
         type="number"
@@ -78,6 +78,7 @@
           :quantity="gift.quantity"
           class="list-item"
           @delete-gift="deleteGift"
+          @update-gifts="loadGifts"
         ></edit-list-gift-item>
       </ul>
     </div>

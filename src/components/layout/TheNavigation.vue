@@ -1,7 +1,7 @@
 <template>
   <div class="navigation">
     <img
-      src="../../assets/logo_gifty.svg"
+      src="../../assets/mygifty_logo.svg"
       alt="logo"
       class="navigation__logo"
       @click="logoClick"

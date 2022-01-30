@@ -135,10 +135,15 @@ export default {
     }
 
     .heading-text__title {
-      font-size: 3vw;
+      font-size: 4rem;
+
+      @media only screen and (max-width: 1920px) {
+        font-size: 3vw;
+      }
       @media only screen and (max-width: 1000px) {
         font-size: 2rem;
       }
+
       .heading-text__name {
         background-size: 400% 400%;
         color: #fefefe;

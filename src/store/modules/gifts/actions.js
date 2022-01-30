@@ -24,10 +24,13 @@ export default {
       }
     );
 
-    // const responseData = await response.json();
+    const responseData = await response.json();
 
     if (!response.ok) {
-      // error ...
+      const error = new Error(
+        responseData.message || "Failed to add the gift!"
+      );
+      throw error;
     }
 
     context.commit("addGift", {
@@ -75,15 +78,44 @@ export default {
         body: JSON.stringify(show),
       }
     );
+    const responseData = await response.json();
 
     if (!response.ok) {
-      // error ...
+      const error = new Error(
+        responseData.message || "Failed to change show option!"
+      );
+      throw error;
     }
-
-    // context.commit("changeShowOfGift", {
-    // giftId,show
-    // });
   },
+
+  async patchGift(context, payload) {
+    const userId = context.rootGetters.userId;
+    const giftId = payload.giftId;
+    const token = context.rootGetters.token;
+
+    const giftData = {
+      name: payload.name,
+      price: payload.price,
+      url: payload.url,
+      imgUrl: payload.imgUrl,
+      quantity: payload.quantity,
+    };
+
+    const response = await fetch(
+      `${PROJECT_URL}/users/${userId}/gifts/${giftId}.json?auth=` + token,
+      {
+        method: "PATCH",
+        body: JSON.stringify(giftData),
+      }
+    );
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      const error = new Error(responseData.message || "Failed to update!");
+      throw error;
+    }
+  },
+
   async deleteGift(context, payload) {
     const giftId = payload.giftId;
     const userId = context.rootGetters.userId;
@@ -96,8 +128,13 @@ export default {
       }
     );
 
+    const responseData = await response.json();
+
     if (!response.ok) {
-      // error ...
+      const error = new Error(
+        responseData.message || "Failed to delete the gift!"
+      );
+      throw error;
     }
   },
 };
