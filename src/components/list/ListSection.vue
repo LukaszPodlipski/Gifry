@@ -10,6 +10,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -24,6 +25,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -38,6 +40,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -52,6 +55,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -66,6 +70,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -80,6 +85,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -94,6 +100,7 @@
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
+          :quantity="gift.quantity"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -151,6 +158,7 @@ export default {
       flex-direction: column;
       align-items: center;
       width: 100%;
+
       .gifts-list__element__list__item:hover {
         -webkit-box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);
         -moz-box-shadow: 8px 8px 24px -15px rgba(0, 0, 0, 0.79);

@@ -1,10 +1,24 @@
 <template>
   <div class="edit-list__gift-item">
-    <img :src="imgUrl" alt="" class="edit-list__gift-item__image" />
+    <img
+      v-if="imgSrcExists"
+      :src="imgUrl"
+      alt=""
+      class="edit-list__gift-item__image"
+    />
+    <img
+      v-else
+      src="../../assets/default_gift_image.svg"
+      alt=""
+      class="edit-list__gift-item__image"
+    />
+
     <div class="edit-list__description">
       <p class="edit-list__description__title">{{ name }}</p>
       <div class="edit-list__description__line"></div>
-      <p class="edit-list__description__price">{{ price }} zł</p>
+      <p class="edit-list__description__price">
+        {{ quantity }}{{ quantityDescriptionType }}{{ price }} zł
+      </p>
     </div>
     <div class="edit-list__controls">
       <div class="edit-list__controls__buttons">
@@ -46,13 +60,14 @@
 import BaseButtonSmall from "../ui/BaseButtonSmall.vue";
 export default {
   components: { BaseButtonSmall },
-  props: ["id", "name", "price", "url", "imgUrl", "show"],
+  props: ["id", "name", "price", "url", "imgUrl", "show", "quantity"],
   emits: ["delete-gift"],
 
   data() {
     return {
       giftHasShow: this.show,
       errorMessage: "Error",
+      imgSrcExists: true,
     };
   },
 
@@ -62,6 +77,13 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+    quantityDescriptionType() {
+      if (this.quantity === 1) {
+        return " szt za ";
+      } else {
+        return " szt po ";
       }
     },
   },
@@ -82,6 +104,31 @@ export default {
     deleteGiftEmit() {
       this.$emit("delete-gift", this.id);
     },
+    checkIfImageExists(url, callback) {
+      const img = new Image();
+      img.src = url;
+
+      if (img.complete) {
+        callback(true);
+      } else {
+        img.onload = () => {
+          callback(true);
+        };
+
+        img.onerror = () => {
+          callback(false);
+        };
+      }
+    },
+  },
+  created() {
+    this.checkIfImageExists(this.imgUrl, exists => {
+      if (exists) {
+        this.imgSrcExists = true;
+      } else {
+        this.imgSrcExists = false;
+      }
+    });
   },
 };
 </script>

@@ -36,6 +36,13 @@
         v-model.trim="price.val"
         class="add-gift-form__input"
       />
+      <label for="quantity" class="add-gift-form__label">Ilość</label>
+      <input
+        id="quantity"
+        type="number"
+        v-model.trim="quantity.val"
+        class="add-gift-form__input"
+      />
       <label for="url" class="add-gift-form__label">Link do oferty</label>
       <input
         id="url"
@@ -68,6 +75,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :show="gift.show"
+          :quantity="gift.quantity"
           class="list-item"
           @delete-gift="deleteGift"
         ></edit-list-gift-item>
@@ -102,6 +110,10 @@ export default {
         isValid: true,
       },
       imgUrl: {
+        val: null,
+        isValid: true,
+      },
+      quantity: {
         val: null,
         isValid: true,
       },
@@ -180,6 +192,7 @@ export default {
         price: this.price.val,
         url: this.url.val,
         imgUrl: this.imgUrl.val,
+        quantity: this.quantity.val,
       };
 
       this.$store.dispatch("gifts/addGift", formData);

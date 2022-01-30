@@ -213,7 +213,7 @@ export default {
   min-width: 350px;
   padding: 2rem 4rem 0rem 4rem;
   border: 2px solid #9aa0a6;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-top: 2rem;
 
   @media only screen and (max-width: 750px) {
@@ -236,7 +236,7 @@ export default {
   .input {
     background-color: transparent;
     border: 2px solid #9aa0a6;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 1rem;
     padding-left: 1rem;
     color: #fefefe;
@@ -285,9 +285,10 @@ export default {
     height: 120px;
 
     .button {
-      padding: 1rem;
+      padding: 0.7rem 1rem;
       min-width: 30%;
       align-self: center;
+      border-radius: 8px;
 
       @media only screen and (max-width: 550px) {
         font-size: 0.8rem;

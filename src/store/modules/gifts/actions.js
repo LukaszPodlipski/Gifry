@@ -10,6 +10,7 @@ export default {
       imgUrl: data.imgUrl,
       show: true,
       isReserved: false,
+      quantity: data.quantity,
     };
 
     const token = context.rootGetters.token;
@@ -55,6 +56,7 @@ export default {
         imgUrl: responseData[key].imgUrl,
         show: responseData[key].show,
         isReserved: responseData[key].isReserved,
+        quantity: responseData[key].quantity,
       };
       gifts.push(gift);
     }

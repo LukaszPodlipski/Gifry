@@ -11,7 +11,9 @@
       <h3 class="gift-list-item__content__title">{{ name }}</h3>
       <div class="gift-list-item__content__line"></div>
       <div class="gift-list-item__content__description">
-        <p class="content__description__price">{{ price }} zł</p>
+        <p class="content__description__price">
+          {{ quantity }}{{ quantityDescriptionType }}{{ price }} zł
+        </p>
         <div class="gift-list-item__content__description_buttons">
           <base-button-small
             link
@@ -31,12 +33,22 @@
 </template>
 <script>
 export default {
-  props: ["id", "name", "price", "url", "imgUrl"],
+  props: ["id", "name", "price", "url", "imgUrl", "quantity"],
 
   data() {
     return {
       imgSrcExists: true,
     };
+  },
+
+  computed: {
+    quantityDescriptionType() {
+      if (this.quantity === 1) {
+        return " szt za ";
+      } else {
+        return " szt po ";
+      }
+    },
   },
 
   methods: {
@@ -76,7 +88,7 @@ export default {
   flex-direction: row;
   background-color: #303134;
   border-radius: 15px;
-  margin: 40px 0 20px 0;
+  margin: 20px 0 20px 0;
   color: #fefefe;
   width: 100%;
   min-width: 300px;
@@ -87,6 +99,9 @@ export default {
     width: 180px;
     object-fit: cover;
     background-color: #fefefe;
+    @media only screen and (max-width: 1300px) {
+      width: 140px;
+    }
 
     @media only screen and (max-width: 900px) {
       width: 100px;
@@ -95,7 +110,7 @@ export default {
 
   .gift-list-item__content {
     width: 100%;
-    padding: 1rem 1rem 0.5rem 2rem;
+    padding: 1rem 2rem 1rem 2rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -108,7 +123,8 @@ export default {
 
     .gift-list-item__content__title {
       font-size: 1.5rem;
-      font-weight: 600;
+      letter-spacing: 1px;
+      font-weight: 400;
 
       @media only screen and (max-width: 900px) {
         font-size: 1rem;
@@ -117,8 +133,8 @@ export default {
 
     .gift-list-item__content__description {
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
+      align-items: left;
       justify-content: space-between;
 
       @media only screen and (max-width: 900px) {
@@ -128,21 +144,44 @@ export default {
       .content__description__price {
         font-size: 1.8rem;
         color: #9aa0a6;
+
         @media only screen and (max-width: 900px) {
           font-size: 1.5rem;
           align-self: flex-start;
           margin-left: 5%;
           margin-bottom: 5px;
         }
+        @media only screen and (max-width: 1300px) {
+          font-size: 1.4rem;
+        }
       }
       .gift-list-item__content__description_buttons {
-        @media only screen and (max-width: 900px) {
-          display: flex;
-          flex-direction: row;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 1rem;
+        @media only screen and (max-width: 1100px) {
+          flex-direction: column;
+          margin-top: 0.5rem;
         }
+
         .gift-list-item__content__button {
+          width: 48%;
+          align-self: center;
+          margin: 0;
           @media only screen and (max-width: 900px) {
             font-size: 0.6rem;
+            margin: 0.2rem;
+          }
+          @media only screen and (max-width: 1100px) {
+            width: 100%;
+          }
+          @media only screen and (max-width: 1300px) {
+            font-size: 0.9rem;
+            margin: 0.2rem;
+          }
+          @media only screen and (max-width: 900px) {
+            font-size: 0.8rem;
             margin: 0.2rem;
           }
         }
