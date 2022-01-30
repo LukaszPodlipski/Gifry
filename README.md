@@ -1,5 +1,5 @@
 <h1 align="left">
-  Gifty
+  MyGifty
 </h1>
 
 Techstack:
