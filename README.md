@@ -16,21 +16,34 @@ Site allows:
 
 Registration and login:
 <p align="left">
- <img src="https://github.com/LukaszPodlipski/Gifty/blob/70bab89984281aefa4b1a19e5a9680a307fa9eb5/src/assets/git_prev_imgs/2.png" style="margin:0px auto;" width="800">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/2.png?raw=true" style="margin:0px auto;" width="800">
 </p>
 
 Viewing gift list pages by personalised link:
 <p align="left">
- <img src="https://github.com/LukaszPodlipski/Gifty/blob/27dca14e304a25c32ee35bb1ec5fc276638ba2a7/src/assets/git_prev_imgs/1.png" style="margin:0px auto;" width="800">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/1.png?raw=true" style="margin:0px auto;" width="800">
 </p>
 
 <p align="left">
- <img src="https://github.com/LukaszPodlipski/Gifty/blob/27dca14e304a25c32ee35bb1ec5fc276638ba2a7/src/assets/git_prev_imgs/3.png" style="margin:0px auto;" width="800">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/3.png?raw=true" style="margin:0px auto;" width="800">
 </p>
 
 Editing your list:
 <p align="left">
- <img src="https://github.com/LukaszPodlipski/Gifty/blob/27dca14e304a25c32ee35bb1ec5fc276638ba2a7/src/assets/git_prev_imgs/4.png" style="margin:0px auto;" width="800">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/4.png?raw=true" style="margin:0px auto;" width="800">
+</p>
+
+Reserving gift:
+<p align="left">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/5.png?raw=true" style="margin:0px auto;" width="800">
+</p>
+
+<p align="left">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/6.png?raw=true" style="margin:0px auto;" width="400">
+</p>
+
+<p align="left">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/7.png?raw=true" style="margin:0px auto;" width="800">
 </p>
 
 And other smaller functions...
