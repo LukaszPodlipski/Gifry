@@ -1,6 +1,7 @@
-<h1 align="left">
-  MyGifty
-</h1>
+<p align="left">
+ <img src="https://github.com/LukaszPodlipski/MyGifty/blob/master/src/assets/git_prev_imgs/mygifty_logo.png?raw=true" style="margin:0px auto;" width="200">
+</p>
+Create, share and edit your list of gift inspirations!
 
 Techstack:
 Vue, Vuex, Vue Router, Firebase for registration/login and Firebase Realtime Database, Vuetify soon
