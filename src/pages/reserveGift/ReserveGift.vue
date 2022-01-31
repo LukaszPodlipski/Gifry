@@ -10,16 +10,18 @@
           class="reservation-container__gift__image"
         />
         <div class="reservation-container__gift__description">
-          <p>Nazwa:{{ name }}</p>
-          <p>Cena: {{ price }}</p>
+          <p>Nazwa: {{ name }}</p>
+          <p>Cena: {{ price }} zł</p>
           <p>Ilość: {{ quantity }}</p>
-          <p>
-            Link:
-            <a class="reservation-container__gift__description__link">{{
-              url
-            }}</a>
-          </p>
+
           <base-button-small
+            link
+            :href="url"
+            class="reservation-container__gift__description__button"
+            >Link do prezentu</base-button-small
+          >
+          <base-button-small
+            @click.native="comeBackToList"
             class="reservation-container__gift__description__button"
             >Wróć do listy</base-button-small
           >
@@ -79,7 +81,7 @@ export default {
       }
     },
     comeBackToList() {
-      this.$router.replace();
+      this.$router.replace(`/gift-list/${this.userId}`);
     },
   },
   created() {
@@ -121,7 +123,7 @@ export default {
     justify-content: space-between;
     width: auto;
     background-color: #121212;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 1rem;
     border-radius: 0.7rem;
 
@@ -140,9 +142,9 @@ export default {
 
     .reservation-container__gift__description {
       display: flex;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
       height: 100%;
-      //   width: 50%;
+      line-height: 180%;
       align-items: flex-start;
       justify-content: start;
 
@@ -153,6 +155,11 @@ export default {
       .reservation-container__gift__description__button {
         margin: 1rem 0 0 0;
         width: 100%;
+        height: 40px;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
