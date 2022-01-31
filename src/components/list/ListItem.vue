@@ -25,8 +25,11 @@
             v-if="!isReserved"
             mode="black"
             class="gift-list-item__content__button"
+            :class="{
+              'gift-list-item__content__button--just-reserved': justReserved,
+            }"
             @click.native="toggleViewtoReserveMode"
-            >Zarezerwuj</base-button-small
+            >{{ reserveButtonCaption }}</base-button-small
           >
           <base-button-small
             v-else
@@ -88,6 +91,7 @@ export default {
 
   data() {
     return {
+      giftId: "",
       imgSrcExists: true,
       isEditing: false,
       reservationName: {
@@ -102,6 +106,7 @@ export default {
       },
       formIsInvalid: false,
       errorMessage: "",
+      justReserved: false,
     };
   },
 
@@ -118,6 +123,13 @@ export default {
     },
     owneriId() {
       return this.$route.path.substr(this.$route.path.length - 28);
+    },
+    reserveButtonCaption() {
+      if (this.justReserved === true) {
+        return "Sprawdź e-mail";
+      } else {
+        return "Zarezerwuj";
+      }
     },
   },
 
@@ -170,7 +182,6 @@ export default {
       if (this.formIsInvalid) {
         return;
       }
-
       const serviceId = process.env.VUE_APP_EMAIL_SERVICE_ID;
       const templateId = process.env.VUE_APP_EMAIL_TEMPLATE_ID;
       const userId = process.env.VUE_APP_EMAIL_USER_ID;
@@ -191,6 +202,7 @@ export default {
           },
           userId
         );
+        this.justReserved = true;
         this.isEditing = false;
       } catch (error) {
         console.error({ error });
@@ -315,6 +327,11 @@ export default {
           &--reserved {
             background-color: red !important;
             cursor: auto;
+          }
+
+          &--just-reserved {
+            background-color: #0e7f8e !important;
+            pointer-events: none;
           }
         }
       }

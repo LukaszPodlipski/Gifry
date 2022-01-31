@@ -22,6 +22,7 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo100"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
@@ -38,6 +39,7 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo200"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
@@ -54,6 +56,7 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo300"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
@@ -70,6 +73,7 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo500"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
@@ -86,6 +90,7 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo1000"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
@@ -102,6 +107,7 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsUnder1000"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
