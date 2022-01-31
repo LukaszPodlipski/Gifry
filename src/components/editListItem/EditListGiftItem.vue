@@ -20,6 +20,9 @@
       <p class="edit-list__description__price">
         {{ quantity }}{{ quantityDescriptionType }}{{ price }} zł
       </p>
+      <p v-if="isReserved" class="edit-list__description__reserved">
+        Zarezerwowano
+      </p>
     </div>
     <div
       :class="{ 'edit-list__controls--edit-active': isEditing }"
@@ -107,6 +110,15 @@
         v-model="giftImgUrl.val"
         class="edit-list__gift-item__edit-box__input"
       />
+      <label for="reserved" class="edit-list__gift-item__edit-box__label"
+        >Prezent zarezerwowany</label
+      >
+      <input
+        type="checkbox"
+        id="reserved"
+        v-model="giftIsReserved"
+        class="edit-list__gift-item__edit-box__checkbox"
+      />
 
       <p class="edit-list__gift-item__edit-box__error-message">
         {{ errorMessage }}
@@ -126,7 +138,16 @@ import BaseButtonSmall from "../ui/BaseButtonSmall.vue";
 import BaseSpinner from "../ui/BaseSpinner.vue";
 export default {
   components: { BaseButtonSmall, BaseSpinner },
-  props: ["id", "name", "price", "url", "imgUrl", "show", "quantity"],
+  props: [
+    "id",
+    "name",
+    "price",
+    "url",
+    "imgUrl",
+    "show",
+    "quantity",
+    "isReserved",
+  ],
 
   emits: ["delete-gift", "update-gifts"],
 
@@ -160,6 +181,7 @@ export default {
         val: null,
         isValid: true,
       },
+      giftIsReserved: null,
     };
   },
 
@@ -209,6 +231,7 @@ export default {
           imgUrl: this.giftImgUrl.val,
           quantity: this.giftQuantity.val,
           giftId: this.giftId,
+          isReserved: this.giftIsReserved,
         };
         this.isLoading = false;
 
@@ -274,7 +297,6 @@ export default {
         this.formIsValid = false;
         this.errorMessage = "Podaj prawidłowy adres do zdjęcia prezentu.";
       }
-      console.log(this.errorMessage);
     },
   },
   created() {
@@ -292,6 +314,7 @@ export default {
     this.giftUrl.val = this.url;
     this.giftImgUrl.val = this.imgUrl;
     this.giftQuantity.val = this.quantity;
+    this.giftIsReserved = this.isReserved;
   },
 };
 </script>
@@ -335,6 +358,7 @@ export default {
       border-bottom-left-radius: 0px;
     }
   }
+
   .edit-list__gift-item__image--edit-active {
     border-bottom-left-radius: 0;
   }
@@ -370,6 +394,15 @@ export default {
       @media only screen and (max-width: 1200px) {
         font-size: 1rem;
       }
+    }
+    .edit-list__description__reserved {
+      font-size: 1vw;
+      width: 100%;
+      background-color: red;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      text-align: center;
     }
   }
 
@@ -467,6 +500,12 @@ export default {
       margin-bottom: 1rem;
       color: #fefefe;
       padding: 0.3rem 0.5rem;
+    }
+
+    .edit-list__gift-item__edit-box__checkbox {
+      margin-top: 1rem;
+      height: 30px;
+      width: 30px;
     }
 
     .edit-list__gift-item__edit-box__label {

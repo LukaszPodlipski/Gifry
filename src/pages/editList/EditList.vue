@@ -76,6 +76,7 @@
           :imgUrl="gift.imgUrl"
           :show="gift.show"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="list-item"
           @delete-gift="deleteGift"
           @update-gifts="loadGifts"

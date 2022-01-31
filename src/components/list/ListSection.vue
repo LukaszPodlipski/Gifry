@@ -5,12 +5,14 @@
       <ul class="gifts-list__element__list">
         <list-item
           v-for="gift in giftsTo50"
+          :id="gift.id"
           :key="gift.id"
           :name="gift.name"
           :price="gift.price"
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -26,6 +28,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -41,6 +44,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -56,6 +60,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -71,6 +76,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -86,6 +92,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>
@@ -101,6 +108,7 @@
           :url="gift.url"
           :imgUrl="gift.imgUrl"
           :quantity="gift.quantity"
+          :isReserved="gift.isReserved"
           class="gifts-list__element__list__item"
         ></list-item>
       </ul>

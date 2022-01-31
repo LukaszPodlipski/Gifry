@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import GiftsView from "./pages/list/GiftsView.vue";
+import ReserveGift from "./pages/reserveGift/ReserveGift.vue";
 import LoginView from "./pages/login/LoginView.vue";
 import EditList from "./pages/editList/EditList.vue";
 import MainPage from "./pages/mainPage/MainPage.vue";
@@ -13,6 +14,12 @@ const routes = [
     component: GiftsView,
     props: true,
     name: "Gift List",
+  },
+  {
+    path: "/reserve-gift/:uid/:git",
+    component: ReserveGift,
+    props: true,
+    name: "Reserve Gift",
   },
   {
     path: "/login",

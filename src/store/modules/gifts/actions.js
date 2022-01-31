@@ -63,9 +63,60 @@ export default {
       };
       gifts.push(gift);
     }
-
     context.commit("setGifts", gifts);
   },
+
+  async reserveGift(context, payload) {
+    const userId = payload.userId;
+    const giftId = payload.giftId;
+    const isReserved = { isReserved: true };
+
+    const response = await fetch(
+      `${PROJECT_URL}/users/${userId}/gifts/${giftId}.json`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(isReserved),
+      }
+    );
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      const error = new Error(
+        responseData.message || "Failed to fetch reserved gift!"
+      );
+      throw error;
+    }
+  },
+
+  async loadReservedGift(context, payload) {
+    const userId = payload.userId;
+    const giftId = payload.giftId;
+
+    const response = await fetch(
+      `${PROJECT_URL}/users/${userId}/gifts/${giftId}.json`
+    );
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      const error = new Error(responseData.message || "Failed to fetch!");
+      throw error;
+    }
+
+    const gift = {
+      id: giftId,
+      name: responseData.name,
+      price: responseData.price,
+      url: responseData.url,
+      imgUrl: responseData.imgUrl,
+      show: responseData.show,
+      isReserved: responseData.isReserved,
+      quantity: responseData.quantity,
+    };
+
+    context.commit("setReservedGift", gift);
+  },
+
   async changeShowOfGift(context, payload) {
     const show = { show: payload.show };
     const userId = context.rootGetters.userId;
@@ -99,6 +150,7 @@ export default {
       url: payload.url,
       imgUrl: payload.imgUrl,
       quantity: payload.quantity,
+      isReserved: payload.isReserved,
     };
 
     const response = await fetch(
