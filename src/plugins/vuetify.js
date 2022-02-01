@@ -13,6 +13,24 @@ export default new Vuetify({
     themes: {
       dark: {
         background: "#000000",
+        primary: {
+          base: "#fefefe",
+          lighten1: "#c6c6c6",
+          lighten2: "#9aa0a6",
+        },
+        secondary: {
+          base: "#121212",
+          lighten1: "#202124",
+          lighten2: "#35363c",
+          lighten3: "#1c1c1c",
+          lighten4: "#444749",
+        },
+        teritary: {
+          base: "#0e7f8e",
+        },
+        quaternary: {
+          base: "#c80707",
+        },
       },
     },
     dark: true,

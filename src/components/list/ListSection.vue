@@ -155,10 +155,10 @@ export default {
     justify-content: center;
 
     .gifts-list__element__description {
-      color: #fefefe;
+      color: var(--v-primary-base);
       font-size: 1.2rem;
       margin-bottom: -20px;
-      background-color: #0e7f8e;
+      background-color: var(--v-teritary-base);
       padding: 0.5rem 1rem 1.2rem 1rem;
       transform: translateY(30px);
       z-index: -1;

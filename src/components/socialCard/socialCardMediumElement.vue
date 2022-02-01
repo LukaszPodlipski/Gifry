@@ -79,10 +79,10 @@ export default {
 <style lang="scss" scoped>
 .social-card {
   width: 300px;
-  background-color: #fefefe;
+  background-color: var(--v-primary-base);
   border-radius: 20px;
   padding: 1.2rem;
-  color: black;
+  color: var(--v-secondary-base);
 
   .social-card__header {
     display: flex;

@@ -268,7 +268,7 @@ export default {
         grid-area: title;
         justify-self: center;
         font-size: 1.6rem;
-        color: #fefefe;
+        color: var(--v-primary-base);
         text-align: center;
 
         @media only screen and (max-width: 500px) {
@@ -292,6 +292,7 @@ export default {
       color: #9aa0a6;
       margin-top: 1rem;
       margin-bottom: 1rem;
+
       @media only screen and (max-width: 500px) {
         font-size: 1rem;
       }
@@ -308,7 +309,7 @@ export default {
       font-size: 1rem;
       text-align: left;
       padding-left: 1rem;
-      color: #fefefe;
+      color: var(--v-primary-base);
       height: 40px;
       width: 80%;
       align-self: center;
@@ -336,7 +337,7 @@ export default {
       &[type="submit"]:hover {
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         background: #f8f8f8;
-        border: 1px solid #c6c6c6;
+        border: 1px solid var(--v-primary-lighten1);
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         color: #222;
       }
@@ -364,7 +365,7 @@ export default {
     }
 
     .error-message {
-      color: #0e7f8e;
+      color: var(--v-teritary-base);
       text-align: center;
       margin-top: 1rem;
       letter-spacing: 1px;
@@ -377,7 +378,7 @@ export default {
     justify-content: flex-start;
     margin: 3rem 10% 0 10%;
     padding: 0 1rem;
-    background-color: #171717;
+    background-color: var(--v-secondary-base);
     border-radius: 10px;
 
     .list-item {
@@ -395,7 +396,7 @@ export default {
   }
 
   .add-gift-button {
-    background-color: #0e7f8e;
+    background-color: var(--v-teritary-base);
     border: none;
     margin: 3rem;
     border-radius: 10px;
@@ -411,9 +412,9 @@ export default {
   }
   .menage-gift-error {
     text-align: center;
-    color: #fefefe;
+    color: var(--v-primary-base);
     font-size: 1.5rem;
-    background-color: #0e7f8e;
+    background-color: var(--v-teritary-base);
     padding: 1rem 2rem;
     margin: 1rem;
     align-self: center;

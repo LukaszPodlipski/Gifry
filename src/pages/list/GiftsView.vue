@@ -128,7 +128,7 @@ export default {
 .gifts-intro {
   .gifts-intro__heading-text {
     padding: 200px 12vw 0px 12vw;
-    color: #fefefe;
+    color: var(--v-primary-base);
 
     @media only screen and (max-width: 600px) {
       padding: 150px 8vw 0px 8vw;
@@ -146,7 +146,7 @@ export default {
 
       .heading-text__name {
         background-size: 400% 400%;
-        color: #fefefe;
+        color: var(--v-primary-base);
         letter-spacing: 2px;
         color: #eb6a79;
 
@@ -220,7 +220,7 @@ export default {
     }
 
     .gifts-summary {
-      background-color: #fefefe;
+      background-color: var(--v-primary-base);
       width: auto;
       max-width: 800px;
       margin-top: 70px;
@@ -229,6 +229,7 @@ export default {
       display: flex;
       justify-content: space-around;
       align-items: center;
+
       @media only screen and (max-width: 1000px) {
         max-width: 650px;
         margin: 70px auto 0 auto;
@@ -236,6 +237,7 @@ export default {
         height: 80px;
         width: 100%;
       }
+
       @media only screen and (max-width: 500px) {
         height: 80px;
         width: 100%;
@@ -255,7 +257,7 @@ export default {
         .gifts-summary__item__title {
           width: 100%;
           font-size: 1rem;
-          color: #c6c6c6;
+          color: var(--v-primary-lighten1);
           margin: 0;
           @media only screen and (max-width: 1000px) {
             font-size: 0.8rem;
@@ -269,7 +271,7 @@ export default {
           font-size: 2rem;
           font-weight: bold;
           line-height: 120%;
-          color: #202124;
+          color: var(--v-secondary-lighten1);
           @media only screen and (max-width: 1000px) {
             font-size: 1.5rem;
           }
@@ -280,7 +282,7 @@ export default {
       }
 
       .line {
-        border-left: 2px solid #c6c6c6;
+        border-left: 2px solid var(--v-primary-lighten1);
         height: 50px;
         margin: 0 10px;
         width: 0;

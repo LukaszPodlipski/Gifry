@@ -28,7 +28,7 @@
         :class="{ 'input--error': !password.isValid }"
       />
       <div class="form__buttons">
-        <base-button-small class="button" mode="bold">{{
+        <base-button-small class="button" mode="black">{{
           submitButtonCaption
         }}</base-button-small>
         <base-button-small
@@ -212,7 +212,7 @@ export default {
   width: 50%;
   min-width: 350px;
   padding: 2rem 4rem 0rem 4rem;
-  border: 2px solid #9aa0a6;
+  border: 2px solid var(--v-primary-lighten2);
   border-radius: 10px;
   margin-top: 2rem;
 
@@ -224,7 +224,7 @@ export default {
   .input-label {
     font-size: 1.3rem;
     text-align: center;
-    color: #9aa0a6;
+    color: var(--v-primary-lighten2);
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -235,21 +235,21 @@ export default {
 
   .input {
     background-color: transparent;
-    border: 2px solid #9aa0a6;
+    border: 2px solid var(--v-primary-lighten2);
     border-radius: 8px;
     font-size: 1rem;
     padding-left: 1rem;
-    color: #fefefe;
+    color: var(--v-primary-base);
     height: 40px;
 
     &:focus {
-      border-color: #4d90fe;
+      border-color: var(--v-teritary-base);
     }
     &[type="submit"] {
       border-radius: 2px;
-      background: #f2f2f2;
-      border: 1px solid #f2f2f2;
-      color: #757575;
+      background: var(--v-primary-base);
+      border: 1px solid var(--v-primary-base);
+      color: var(--v-primary-lighten2);
       font-size: 14px;
       font-weight: bold;
       width: 100px;
@@ -258,23 +258,23 @@ export default {
     }
 
     &[type="submit"]:hover {
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      background: #f8f8f8;
-      border: 1px solid #c6c6c6;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      color: #fefefe;
+      box-shadow: 0 1px 1px var(--v-secondary-base);
+      background: var(--v-teritary-base);
+      border: 1px solid var(--v-primary-lighten1);
+      box-shadow: 0 1px 1px var(--v-secondary-base);
+      color: var(--v-primary-base);
     }
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      box-shadow: 0 0 0 30px rgb(27, 82, 104) inset !important;
-      color: #fefefe !important;
+      box-shadow: 0 0 0 30px var(--v-teritary-base) inset !important;
+      color: var(--v-primary-base) !important;
     }
   }
 
   .input--error {
-    border: 2px solid #0e7f8e;
+    border: 2px solid var(--v-quaternary-base);
   }
 
   .form__buttons {
@@ -302,8 +302,8 @@ export default {
   .error-message {
     text-align: center;
     font-size: 0.9rem;
-    color: rgb(255, 255, 255);
-    background-color: #0e7f8e;
+    color: var(--v-primary-base);
+    background-color: var(--v-teritary-base);
     padding: 0.5rem 1rem;
     align-self: center;
     border-radius: 10px;

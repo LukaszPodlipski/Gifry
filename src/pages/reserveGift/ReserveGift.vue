@@ -122,7 +122,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     width: auto;
-    background-color: #121212;
+    background-color: var(--v-secondary-base);
     padding: 1.5rem;
     margin: 1rem;
     border-radius: 0.7rem;

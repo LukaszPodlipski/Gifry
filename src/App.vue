@@ -49,14 +49,17 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap");
+
 .primary {
-  color: var(--v-primary);
+  color: var(--v-primary-base);
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   background-color: #171717;
   min-height: 100vh;
@@ -72,9 +75,11 @@ html {
   -ms-user-select: none;
   user-select: none;
 }
+
 #app {
   width: 100vw;
 }
+
 .v-application {
   background-color: var(--v-background) !important;
 }
@@ -86,7 +91,7 @@ html {
 }
 
 .v-application a {
-  color: #fefefe !important;
+  color: var(--v-primary-base) !important;
 }
 
 .v-application p {
@@ -94,7 +99,7 @@ html {
 }
 
 .v-application .background {
-  background-color: black !important;
+  background-color: var(--v-secondary-base) !important;
 }
 
 .full-screen {

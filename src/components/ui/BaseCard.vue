@@ -25,27 +25,32 @@ div {
   justify-content: center;
   height: auto;
 }
+
 .listPlace {
   margin-top: 10rem;
 }
+
 .card {
   width: 65%;
   min-width: 350px;
-  background-color: #202124;
+  background-color: var(--v-secondary-lighten1);
   transform: translate(0, -50px);
   border-radius: 20px;
   margin: 0 auto;
   padding: 5rem 0 5rem 0;
   position: relative;
+
   @media only screen and (max-width: 550px) {
     padding: 3rem 0 3rem 0;
     transform: translate(0, -90px);
   }
 }
+
 h1 {
-  color: #fefefe;
+  color: var(--v-primary-base);
   font-size: 3rem;
   margin-bottom: 2rem;
+
   @media only screen and (max-width: 750px) {
     font-size: 2rem;
   }

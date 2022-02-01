@@ -127,10 +127,6 @@ export default {
       if (this.index === this.stories.length - 1) {
         this.index = 0;
       }
-      //   document.querySelector(".social-cards__first-card").style.zIndex =
-      //     !document.querySelector(".social-cards__first-card").style.zIndex;
-      //   document.querySelector(".social-cards__second-card").style.zIndex =
-      //     !document.querySelector(".social-cards__second-card").style.zIndex;
     }, 5000);
   },
 

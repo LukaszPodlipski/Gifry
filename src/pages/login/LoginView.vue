@@ -22,6 +22,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   @media only screen and (max-height: 900px) {
     margin-top: 15rem;
   }

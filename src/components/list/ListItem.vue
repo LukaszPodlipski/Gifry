@@ -229,22 +229,30 @@ export default {
   background-color: #303134;
   border-radius: 15px;
   margin: 20px 0 20px 0;
-  color: #fefefe;
+  color: var(--v-primary-base);
   width: 100%;
   min-width: 300px;
+
+  @media only screen and (max-width: 1450px) {
+    flex-direction: column;
+  }
 
   .gift-list-item__image {
     border-radius: 15px 0px 0 15px;
     height: auto;
     width: 180px;
     object-fit: cover;
-    background-color: #fefefe;
+    background-color: var(--v-primary-base);
+
     @media only screen and (max-width: 1300px) {
       width: 140px;
     }
 
-    @media only screen and (max-width: 900px) {
-      width: 100px;
+    @media only screen and (max-width: 1450px) {
+      border-radius: 15px 15px 0 0px;
+
+      width: 100%;
+      height: 150px;
     }
   }
 
@@ -282,11 +290,11 @@ export default {
       }
 
       .content__description__price {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         color: #9aa0a6;
 
         @media only screen and (max-width: 900px) {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           align-self: flex-start;
           margin-left: 5%;
           margin-bottom: 5px;
@@ -309,6 +317,7 @@ export default {
           width: 48%;
           align-self: center;
           margin: 0;
+
           @media only screen and (max-width: 900px) {
             font-size: 0.6rem;
             margin: 0.2rem;
@@ -325,8 +334,9 @@ export default {
             margin: 0.2rem;
           }
           &--reserved {
-            background-color: red !important;
-            cursor: auto;
+            background-color: var(--v-teritary-base) !important;
+            border: none;
+            pointer-events: none;
           }
 
           &--just-reserved {
@@ -381,12 +391,12 @@ export default {
 
     .gift-list-item__edit-item__input {
       background-color: transparent;
-      border: 2px solid #444749;
+      border: 2px solid var(--v-secondary-lighten4);
       border-radius: 10px;
       font-size: 1rem;
       text-align: left;
       padding-left: 1rem;
-      color: #fefefe;
+      color: var(--v-primary-base);
       height: 40px;
       width: 80%;
       margin: 1.2rem 0;
@@ -395,7 +405,7 @@ export default {
         font-size: 0.8rem;
       }
       &--invalid {
-        border: 2px solid #bd001f;
+        border: 2px solid var(--v-quaternary-base);
       }
     }
 

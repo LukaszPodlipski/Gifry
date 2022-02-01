@@ -237,28 +237,28 @@ export default {
 
     .search-input {
       background-color: transparent;
-      border: 1px solid #9aa0a6;
+      border: 2px solid var(--v-secondary-lighten2);
       border-radius: 50px;
       width: 600px;
       height: 50px;
       padding-left: 3rem;
       font-size: 1rem;
-      color: #fefefe;
+      color: var(--v-primary-base);
       transform: translate(-1.5rem, 0.1rem);
 
       &:hover {
-        border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+        border-color: var(--v-teritary-base);
       }
 
       &:focus {
-        border-color: #4d90fe;
+        border-color: var(--v-teritary-base);
       }
 
       &[type="submit"] {
         border-radius: 2px;
-        background: #f2f2f2;
-        border: 1px solid #f2f2f2;
-        color: #757575;
+        background: var(--v-primary-base);
+        border: 1px solid var(--v-primary-base);
+        color: var(--v-secondary-lighten1);
         font-size: 14px;
         font-weight: bold;
         width: 100px;
@@ -269,9 +269,9 @@ export default {
       &[type="submit"]:hover {
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         background: #f8f8f8;
-        border: 1px solid #c6c6c6;
+        border: 1px solid var(--v-primary-lighten1);
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        color: #222;
+        color: var(--v-secondary-base);
       }
 
       @media only screen and (max-width: 1000px) {
@@ -297,28 +297,29 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #171717;
+    background-color: var(--v-secondary-base);
     padding: 0.5rem 1.5rem;
     border-radius: 10px;
 
     .no-gifts-info__text {
-      color: #fefefe;
+      color: var(--v-primary-base);
       margin-right: 1rem;
       font-size: 1.2rem;
       letter-spacing: 1px;
     }
 
     .no-gifts-info__button {
-      background-color: #981314;
+      background-color: var(--v-teritary-base);
       font-size: 1rem;
       padding: 0.8rem 1.2rem;
 
       &:hover {
-        background-color: #7c0e0e;
+        filter: brightness(1.1);
       }
     }
   }
 }
+
 .base-card__title {
   @media only screen and (max-width: 1000px) {
     font-size: 2rem;

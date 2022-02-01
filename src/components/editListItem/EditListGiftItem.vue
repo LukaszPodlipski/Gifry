@@ -351,7 +351,7 @@ export default {
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     object-fit: cover;
-    background-color: #fefefe;
+    background-color: var(--v-primary-base);
 
     @media only screen and (max-width: 1400px) {
       width: 150px;
@@ -375,7 +375,7 @@ export default {
 
     .edit-list__description__title {
       font-size: 1.5vw;
-      color: #fefefe;
+      color: var(--v-primary-base);
 
       @media only screen and (max-width: 1200px) {
         font-size: 1rem;
@@ -383,13 +383,13 @@ export default {
     }
 
     .edit-list__description__line {
-      border-top: 2px solid #9aa0a6;
+      border-top: 2px solid var(--v-primary-lighten2);
       margin: 1rem 0;
     }
 
     .edit-list__description__price {
       font-size: 1.5vw;
-      color: #9aa0a6;
+      color: var(--v-primary-lighten2);
 
       @media only screen and (max-width: 1200px) {
         font-size: 1rem;
@@ -398,7 +398,7 @@ export default {
     .edit-list__description__reserved {
       font-size: 1vw;
       width: 100%;
-      background-color: red;
+      background-color: var(--v-quaternary-base);
       margin-top: 1rem;
       padding: 0.5rem;
       border-radius: 0.3rem;
@@ -412,7 +412,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 0.7rem;
-    background-color: #1c1c1c;
+    background-color: var(--v-secondary-lighten3);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     height: 100%;
@@ -457,7 +457,7 @@ export default {
     }
 
     .edit-list__controls__edit-button {
-      color: #fefefe;
+      color: var(--v-primary-base);
       margin: 0.5rem;
       font-size: 0.8rem;
       padding: 0.8rem 1rem;
@@ -488,17 +488,19 @@ export default {
     grid-area: editBox;
     width: 100%;
     padding-top: 2rem;
-    background-color: #1c1c1c;
+    background-color: var(--v-secondary-lighten1);
     -webkit-box-shadow: 0px -23px 47px -12px rgba(28, 28, 28, 1);
     -moz-box-shadow: 0px -23px 47px -12px rgba(28, 28, 28, 1);
     box-shadow: 0px -23px 47px -12px rgba(28, 28, 28, 1);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 
     .edit-list__gift-item__edit-box__input {
-      border: 2px solid #35363c;
+      border: 2px solid var(--v-secondary-lighten2);
       border-radius: 5px;
       width: 80%;
       margin-bottom: 1rem;
-      color: #fefefe;
+      color: var(--v-primary-base);
       padding: 0.3rem 0.5rem;
     }
 
@@ -509,7 +511,7 @@ export default {
     }
 
     .edit-list__gift-item__edit-box__label {
-      color: #9aa0a6;
+      color: var(--v-primary-lighten2);
       width: 80%;
       font-size: 1rem;
       text-align: center;
@@ -525,7 +527,7 @@ export default {
     }
 
     .edit-list__gift-item__edit-box__error-message {
-      color: red;
+      color: var(--v-quaternary-base);
       margin-bottom: 1rem !important;
     }
   }

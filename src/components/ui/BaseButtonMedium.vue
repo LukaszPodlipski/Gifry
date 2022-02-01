@@ -54,9 +54,10 @@ a {
   text-decoration: none;
   padding: 0.9rem 1.4rem;
   font: inherit;
-  background-color: #202124;
+  background-color: var(--v-secondary-lighten1);
   border: none;
-  color: white;
+  color: var(--v-primary-base);
+  cursor: pointer;
   cursor: pointer;
   border-radius: 10px;
   margin-right: 0.5rem;
@@ -68,10 +69,17 @@ a:hover,
 a:active,
 button:hover,
 button:active {
-  background-color: #262729;
-  border-color: #262729;
+  background-color: var(--v-secondary-lighten1);
+  border-color: var(--v-secondary-lighten1);
 }
 .black {
-  background-color: #050505;
+  background-color: var(--v-secondary-base);
+}
+.flat {
+  border-radius: 15px;
+  border: 2px solid var(--v-primary-lighten2);
+}
+.flat:hover {
+  border: 2px solid var(--v-primary-lighten2);
 }
 </style>

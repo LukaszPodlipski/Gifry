@@ -72,7 +72,7 @@ export default {
 
   .main-page__box {
     padding: 2rem 4rem;
-    color: white;
+    color: var(--v-primary-base);
     border-radius: 15px;
     position: relative;
     z-index: 1;
@@ -82,6 +82,7 @@ export default {
     justify-content: space-between;
     height: 65vh;
     width: 85vw;
+
     @media only screen and (max-width: 930px) {
       justify-content: center;
     }
@@ -89,6 +90,7 @@ export default {
     @media only screen and (max-width: 1160px) {
       padding: 2rem 2rem;
     }
+
     .main-page__heading-text {
       margin-top: 2rem;
       width: 50%;
@@ -104,15 +106,18 @@ export default {
         font-size: 4rem;
         font-weight: 400;
         line-height: 150%;
-        color: #fefefe;
+        color: var(--v-primary-base);
+
         @media only screen and (max-width: 500px) {
           font-size: 1.5rem;
           text-align: center;
         }
+
         @media only screen and(min-width: 501px) and (max-width: 930px) {
           font-size: 3rem;
           text-align: center;
         }
+
         @media only screen and (max-width: 1920px) {
           font-size: 3.5vw;
         }
@@ -164,23 +169,29 @@ export default {
     .social-cards {
       transform: translateX(100px);
     }
+
     .social-cards-small {
       @media only screen and (max-width: 929px) {
         display: none;
       }
+
       @media only screen and (min-width: 930px) and (max-width: 1159px) {
         display: flex;
       }
+
       @media only screen and (min-width: 1160px) {
         display: none;
       }
     }
+
     .social-cards-medium {
       display: none;
+
       @media only screen and (min-width: 1160px) and (max-width: 1559px) {
         display: flex;
       }
     }
+
     .social-cards-large {
       display: none;
 

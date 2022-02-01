@@ -7,8 +7,8 @@
 </template>
 <style lang="scss" scoped>
 .loader {
-  --path: #2f3545;
-  --dot: #0e7f8e;
+  --path: var(--v-quaternary-base);
+  --dot: var(--v-teritary-base);
   --duration: 3s;
   width: 44px;
   height: 44px;

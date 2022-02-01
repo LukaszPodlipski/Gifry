@@ -106,9 +106,11 @@ export default {
   padding: 40px 3vw;
   align-items: flex-start;
   justify-content: space-between;
+
   @media only screen and (max-width: 1000px) {
     padding: 30px 20px;
   }
+
   .navigation__logo {
     height: 100%;
     cursor: pointer;
@@ -116,6 +118,7 @@ export default {
       height: 40px;
     }
   }
+
   .navigation__buttons {
     display: flex;
     flex-direction: row;
@@ -128,16 +131,17 @@ export default {
     }
   }
 }
+
 .flat {
   background-color: transparent;
-  border: 1px solid #fefefe;
-  color: #fefefe;
+  border: 1px solid var(--v-primary-base);
+  color: var(--v-primary-base);
   padding: 0.8rem 1.4rem;
   transition: 0.5s;
 
   &:hover {
-    border: 1px solid #fefefe;
-    background-color: #fefefe25;
+    border: 1px solid var(--v-primary-base);
+    background-color: var(--v-primary-base) 25;
   }
 }
 </style>
