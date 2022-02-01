@@ -226,7 +226,7 @@ export default {
 .gift-list-item {
   display: flex;
   flex-direction: row;
-  background-color: #303134;
+  background-color: var(--v-secondary-lighten5);
   border-radius: 15px;
   margin: 20px 0 20px 0;
   color: var(--v-primary-base);
@@ -350,13 +350,15 @@ export default {
     .gift-list-item__content__line {
       width: 100%;
       height: 0;
-      border: 1px solid #9aa0a698;
+      border: 1px solid var(--v-primary-lighten2);
       margin: 1rem 0 1.5rem 0;
+
       @media only screen and (max-width: 900px) {
         margin: 0.8rem 0 0.8rem 0;
       }
     }
   }
+
   .gift-list-item__edit-item {
     display: flex;
     flex-direction: column;

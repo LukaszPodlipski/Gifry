@@ -71,10 +71,15 @@ button:hover,
 button:active {
   background-color: var(--v-secondary-lighten1);
   border-color: var(--v-secondary-lighten1);
+  opacity: 0.8;
 }
 .black {
   background-color: var(--v-secondary-base);
   border: 2px solid var(--v-secondary-base);
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .flat {

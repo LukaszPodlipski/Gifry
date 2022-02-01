@@ -24,6 +24,7 @@ export default new Vuetify({
           lighten2: "#35363c",
           lighten3: "#1c1c1c",
           lighten4: "#444749",
+          lighten5: "#303134",
         },
         teritary: {
           base: "#0e7f8e",

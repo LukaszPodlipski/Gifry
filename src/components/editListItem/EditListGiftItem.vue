@@ -520,9 +520,10 @@ export default {
     .edit-list__gift-item__edit-box__submit-button {
       width: 80%;
       margin-bottom: 2rem;
+      background-color: var(--v-secondary-base);
 
       &:hover {
-        filter: brightness(90%);
+        filter: brightness(120%);
       }
     }
 
